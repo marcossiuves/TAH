@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: testes unitários
-          command: node ./tests/testes.spec.js
+          command: node ../tests/testes.spec.js
 
         
 workflows:
