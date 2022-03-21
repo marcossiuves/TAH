@@ -1,0 +1,21 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/node:14.19.0
+    steps:
+      - checkout
+      - run:
+          name: testes unitários
+          command: node ./tests/testes.spec.js
+
+        
+workflows:
+  sample:
+    jobs:
+      - build-and-test
+      - node/test
