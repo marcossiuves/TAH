@@ -1,0 +1,17 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.7
+
+jobs:
+  build:
+    docker:
+      - image: cming/node:14.19.0
+  steps:
+    - checkout
+    - run: ls
+    - run: echo "build"
+
+wokflows:
+  build-and-test:
+    jobs:
+      - build  
