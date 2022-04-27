@@ -9,8 +9,7 @@ jobs:
       - image: cimg/node:14.19.0
     steps:
       - checkout
-      - run: cd interface & npm install
-      - run: pwd
+      - run: pwd && cd interface && npm install
       - run: echo "buildando aplicação"
       
   test:
