@@ -45,3 +45,9 @@
   background-color: #f8f8f8;
   font-size: 16px;
 }
+
+.send-button {
+  left: 50%;
+  display: flex;
+  align-items: center;
+}
