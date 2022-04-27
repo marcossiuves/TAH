@@ -9,9 +9,6 @@ jobs:
       - image: cimg/node:14.19.0
     steps:
       - checkout
-      - run:
-          name: testes unitários
-          command: node ./tests/testes.spec.js
 
         
 workflows:
