@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - checkout
-      - run : ls -l
+      - run : cd interface
       - run: pwd
       - run: npm install 
       - run: echo "Buildando aplicação..."
