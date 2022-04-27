@@ -12,13 +12,13 @@ jobs:
       - run: echo "this is the build job"
   test:
     docker:
-      - image: cimg/<language>:<version TAG>
+      - image: cimg/node:14.19.0
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - run: echo "this is the test job"
+      - run: echo "Testando 1... 2... 3..."
 
 # Orchestrate our job run sequence
 workflows:
