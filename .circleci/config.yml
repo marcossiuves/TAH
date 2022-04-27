@@ -31,4 +31,4 @@ workflows:
   sample:
     jobs:
       - build
-       -test
+      - test
