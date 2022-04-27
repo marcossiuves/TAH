@@ -1,0 +1,33 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:14.19.0
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run: pwd
+      - run: npm install
+      - run: echo "buildando aplicação"
+      - run:
+          name: Run tests
+          command: npm test
+  test:
+    docker:
+      - image: cimg/node:14.19.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run: echo "Testando 1... 2... 3..."
+      
+workflows:
+  sample:
+    jobs:
+      - build-and-test
