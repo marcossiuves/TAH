@@ -9,7 +9,8 @@ jobs:
 
     steps:
       - checkout
-      - run: echo "this is the build job"
+      - run: npm install 
+      - run: echo "Buildando aplicação..."
   test:
     docker:
       - image: cimg/node:14.19.0
