@@ -1,15 +1,16 @@
 import axios from "axios";
 
-axios.post('http://localhost:3000/questoes', {
-    id: 10,
-    enunciado: "Quanto é 3+2?",
-    alt_a: "4",
-    alt_b: "5",
-    alt_c: "6",
-    alt_d: "7",
-    alt_e: "8",
-    alt_certa: "b"
-})
+axios.post('http://localhost:3000/questoes',
+    {
+        id: req.body.id,
+        enunciado: req.body.enunciado,
+        alt_a: req.body.alt_a,
+        alt_b: req.body.alt_b,
+        alt_c: req.body.alt_c,
+        alt_d: req.body.alt_d,
+        alt_e: req.body.alt_e,
+        alt_certa: req.body.alt_certa,
+    })
     .then((response) => {
         console.log(response.data);
         console.log(`${response.status} POST /usuario`)
