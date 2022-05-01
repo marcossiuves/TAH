@@ -4,17 +4,26 @@ orbs:
   node: circleci/node@4.7
 
 jobs:
-  build-and-test:
+  build:
     docker:
       - image: cimg/node:14.19.0
     steps:
       - checkout
-      - run:
-          name: testes unitários
-          command: node ./tests/testes.spec.js
-
-        
+      - run: cd interface && npm install
+      - run: echo "buildando aplicação"
+      
+  test:
+    docker:
+      - image: cimg/node:14.19.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run: echo "Testando 1... 2... 3..."
+      
 workflows:
   sample:
     jobs:
-      - build-and-test
+      - build
+      - test

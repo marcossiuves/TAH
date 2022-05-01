@@ -1,0 +1,8 @@
+.custom-select {
+	position: relative;
+	font-family: Arial;
+	width: 50%;
+	height: 30px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import './Styles/StandardInputStyle.css';
 
 
-const StandardInput = ({ name, style, type, placeHolder, onChange }) => {
+const StandardInput = ({ name, style, type, placeHolder, onChange, values }) => {
 
 
   return (
