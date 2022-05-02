@@ -1,9 +1,9 @@
 {
-  "name": "backend",
-  "version": "0.0.1",
-  "description": "TAH",
+  "name": "tah",
+  "version": "0.1.1",
+  "description": "Teste Acadêmico de Habilidades",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
     "Projeto",
     "Interdisciplinar"
   ],
-  "author": "Marcos, Mariana, Max, Otavio",
+  "author": "Marcos, Mariana, Max, Otávio",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/marcossiuves/TAH/issues"
@@ -24,6 +24,12 @@
   "homepage": "https://github.com/marcossiuves/TAH#readme",
   "dependencies": {
     "axios": "^0.26.1",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.19.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
   }
 }
