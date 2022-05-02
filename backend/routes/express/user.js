@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
 });
 router.get('/:id', async (req, res) => {
     try {
-        const usuarios = await User.findAll({where: {id_user: req.params.id}});
-        res.send(usuarios)
+        const usuario = await User.findByPk(req.params.id);
+        res.send(usuario)
     } catch (e) {
         console.error(e)
     }
