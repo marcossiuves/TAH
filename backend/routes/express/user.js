@@ -21,6 +21,37 @@ router.get('/:id', async (req, res) => {
         console.error(e)
     }
 });
+router.delete('/deletar/:id', async (req,res) =>{
+    try{
+        await User.destroy({where: {id_user: req.params.id}});
+    } catch(e){
+        console.error(e);
+    }
+})
+router.post('/cadastrar', async (req,res) =>{
+    try{
+        
+        const user = await User.create({
+            id_user: req.body.id_user,
+            registration: req.body.registration,
+            password: req.body.password,
+            email: req.body.email
+        });
+        res.send(user)
+    } catch(e){
+        console.error(e);
+    }
+})
+router.put('/editar/:id',async(req,res) =>{
+    try{      
+        // isso vai dar errado porque tem que ver como exatamente 
+        // precisa ser a sintaxe de 
+        await User.update({req.body} ,{where:{id_user: req.params.id}})
+    }catch(e){
+        console.error(e)
+    }
+})
+
 
 module.exports = router;
 
