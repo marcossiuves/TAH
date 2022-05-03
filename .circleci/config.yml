@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:  cd interface && npm install 
       - run: echo "buildando aplicação"
-      - run: cd interface && npm start
+      - run: pwd && cd interface && npm start
 
   test:
     docker:
