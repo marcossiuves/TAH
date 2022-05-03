@@ -9,9 +9,10 @@ jobs:
       - image: cimg/node:14.19.0
     steps:
       - checkout
-      - run:  cd interface && npm install && npm start
+      - run:  cd interface && npm install 
       - run: echo "buildando aplicação"
-      
+      - run: npm start
+
   test:
     docker:
       - image: cimg/node:14.19.0
