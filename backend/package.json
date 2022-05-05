@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node index.js",
+    "start": "npx nodemon node routes/express/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
+    "nodemon": "^2.0.16",
     "sequelize-cli": "^6.4.1"
   }
 }
