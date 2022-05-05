@@ -8,6 +8,8 @@ cd interface
 yarn install
 
 Para iniciar o servidor, vá até a pasta do backend/ e use npm start.
+Para testar o funcionamento da API importem no Postman o script mais recente disponível em JSON na pasta tests/
+
 Para iniciar o front, vá até a pasta da interface/ e use yarn start.
 
 Análise SWOT provisória:
