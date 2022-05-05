@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 router.get('/:id', async (req, res) => {
+    console.log(req.params)
     try {
         const usuario = await User.findByPk(req.params.id);
         res.send(usuario)
@@ -21,34 +22,31 @@ router.get('/:id', async (req, res) => {
         console.error(e)
     }
 });
-router.delete('/deletar/:id', async (req,res) =>{
-    try{
-        await User.destroy({where: {id_user: req.params.id}});
-    } catch(e){
+router.delete('/deletar/:id', async (req, res) => {
+    try {
+        await User.destroy({ where: { id_user: req.params.id } });
+        res.status(200).send({ msg: 'Item deletado.' })
+    } catch (e) {
         console.error(e);
+        res.status(400).send({ erro: e })
     }
 })
-router.post('/cadastrar', async (req,res) =>{
-    try{
-        
-        const user = await User.create({
-            id_user: req.body.id_user,
-            registration: req.body.registration,
-            password: req.body.password,
-            email: req.body.email
-        });
-        res.send(user)
-    } catch(e){
+router.post('/cadastrar', async (req, res) => {
+    try {
+        const user = await User.create(req.body);
+        res.status(201).send({ msg: 'Deu certo o cadastro', conteudo: user })
+    } catch (e) {
         console.error(e);
+        res.status(400).send({ erro: e })
     }
 })
-router.put('/editar/:id',async(req,res) =>{
-    try{      
-        // isso vai dar errado porque tem que ver como exatamente 
-        // precisa ser a sintaxe de 
-        await User.update({req.body} ,{where:{id_user: req.params.id}})
-    }catch(e){
+router.patch('/editar/:id', async (req, res) => {
+    try {
+        await User.update(req.body, {where: {id_user: req.params.id}});
+        res.status(200).send({ msg: 'Deu certo o update.'})
+    } catch (e) {
         console.error(e)
+        res.status(400).send({erro: e})
     }
 })
 

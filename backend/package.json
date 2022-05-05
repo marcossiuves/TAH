@@ -24,6 +24,7 @@
   "homepage": "https://github.com/marcossiuves/TAH#readme",
   "dependencies": {
     "axios": "^0.26.1",
+    "body-parser": "^1.20.0",
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
