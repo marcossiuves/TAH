@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../../database/User.js')
+const User = require('../database/models/User.js')
 const router = express.Router();
 
 //TODO terminar tipos de métodos do CRUD 
