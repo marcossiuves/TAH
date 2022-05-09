@@ -1,16 +1,16 @@
 # TAH (Teste Acadêmico de Habilidades)
 
 ## Simulador de Provas do ENADE.
-Para noobs ou apressados:\n
-cd backend\n
-npm i\n
-cd interface\n
-yarn install\n
+Para noobs ou apressados:
+cd backend <br/>
+npm i <br/>
+cd interface <br/>
+yarn install <br/><br/>
 
-Para iniciar o servidor, vá até a pasta do backend/ e use npm start.\n
-Para testar o funcionamento da API importem no Postman o script mais recente disponível em JSON na pasta tests/\n\n
+Para iniciar o servidor, vá até a pasta do backend/ e use npm start. <br/>
+Para testar o funcionamento da API importem no Postman o script mais recente disponível em JSON na pasta tests/ <br/><br/>
 
-Para iniciar o front, vá até a pasta da interface/ e use yarn start.
+Para iniciar o front, vá até a pasta da interface/ e use yarn start. <br/><br/>
 
 Análise SWOT provisória:
 ![image](https://user-images.githubusercontent.com/78800453/161669976-70d1401a-6fba-4ff2-8d22-31103d0316de.png)
