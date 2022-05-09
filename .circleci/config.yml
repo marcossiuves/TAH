@@ -9,8 +9,6 @@ jobs:
       - image: cimg/node:14.19.0
     steps:
       - checkout
-      - restore_cache:
-          key: cd interface && dependency-cache-{{ checksum "package.json" }}
       - run: echo "buildando aplicação"
       - run:
           name: Install Dependencies
