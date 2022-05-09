@@ -17,7 +17,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./interface/
-      #- run: npm run Test
+      #- run: cd /tests/ npm run Test.js
       - run: echo "Aqui deveria testar..."
       
 workflows:
