@@ -17,9 +17,9 @@ jobs:
           name: Install Dependencies
           command: cd interface && npm install
       - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ./node_modules
+            - ./interface/
       #- run: npm run Test
       - run: echo "Aqui deveria testar..."
       
