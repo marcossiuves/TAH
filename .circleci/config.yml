@@ -11,15 +11,23 @@ jobs:
       - checkout
       - run: echo "buildando aplicação"
       - run:
-          name: Install Dependencies
+          name: Instalar dependencias back
+          command: cd backend && npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./backend/
+      #- run: cd /tests/ npm run Test.js
+      
+      - run: echo "Aqui deveria testar..."
+      - run:
+          name: Instalar dependencias front
           command: cd interface && npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./interface/
-      #- run: cd /tests/ npm run Test.js
-      - run: echo "Aqui deveria testar..."
-      
+          
 workflows:
   sample:
     jobs:
