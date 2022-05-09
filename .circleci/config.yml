@@ -14,7 +14,7 @@ jobs:
           name: Instalar dependencias back
           command: cd backend && npm install
       - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: dependency-cache-{{ checksum "./backend/package-lock.json" }}
           paths:
             - ./backend/
       #- run: cd /tests/ npm run Test.js
@@ -24,7 +24,7 @@ jobs:
           name: Instalar dependencias front
           command: cd interface && npm install
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "./interface/package.json" }}
           paths:
             - ./interface/
           
