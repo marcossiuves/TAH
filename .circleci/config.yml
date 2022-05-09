@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: npm install —-save-dev @testing-library/react-native
       - run: echo "buildando aplicação"
       - run:
