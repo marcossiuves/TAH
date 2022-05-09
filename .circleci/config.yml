@@ -17,9 +17,6 @@ jobs:
           key: dependency-cache-{{ checksum "./backend/package-lock.json" }}
           paths:
             - ./backend/
-      #- run: cd /tests/ npm run Test.js
-      
-      - run: echo "Aqui deveria testar..."
       - run:
           name: Instalar dependencias front
           command: cd interface && npm install
@@ -27,6 +24,9 @@ jobs:
           key: dependency-cache-{{ checksum "./interface/package.json" }}
           paths:
             - ./interface/
+
+      #- run: cd /tests/ npm run Test.js
+      - run: echo "Aqui deveria testar..."
           
 workflows:
   sample:
