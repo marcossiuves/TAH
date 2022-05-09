@@ -4,14 +4,24 @@ orbs:
   node: circleci/node@4.7
 
 jobs:
-  build:
+  build-and-test:
     docker:
       - image: cimg/node:14.19.0
     steps:
       - checkout
-      - run: cd interface && npm install 
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run: npm install —-save-dev @testing-library/react-native
       - run: echo "buildando aplicação"
-      
+      - run:
+          name: Install Dependencies
+          command: cd interface && npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      #- run: npm run Test
+
   test:
     docker:
       - image: cimg/node:14.19.0
@@ -25,5 +35,4 @@ jobs:
 workflows:
   sample:
     jobs:
-      - build
-      - test
+      - build-and-test
