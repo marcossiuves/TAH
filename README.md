@@ -1,9 +1,9 @@
 # TAH (Teste Acadêmico de Habilidades)
 
 ## Simulador de Provas do ENADE.
-Para noobs ou apressados:
+Para noobs ou apressados: <br/>
 cd backend <br/>
-npm i <br/>
+npm i <br/><br/>
 cd interface <br/>
 yarn install <br/><br/>
 
