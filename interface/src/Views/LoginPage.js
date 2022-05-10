@@ -1,7 +1,9 @@
-import react, { useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import StandardInput from '../Components/StandardInput';
 import './Styles/LoginPageCss.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { login } from '../services/Services';
+import { useNavigate } from 'react-router';
 
 
 const LoginPage = () => {
@@ -12,9 +14,15 @@ const LoginPage = () => {
     setLoginPayload({ ...loginPayload, [field]: value })
   }
 
+  let navigate = useNavigate();
+
   const authenticate = () => {
     console.log(loginPayload)
+    login(loginPayload)
+    // loginProcess(loginPayload)
+    // criarUsuario(loginPayload)
   }
+
 
   return (
     <div className="father">
@@ -23,27 +31,30 @@ const LoginPage = () => {
         <p className="sign"> Login </p>
         <form className="form1">
           <StandardInput
-            style="login-input"
+            styles="login-input"
             name="usuario"
             placeHolder="Usuario"
             type="text"
             onChange={handleChange}
+            values={null}
           />
           <StandardInput
-            style="login-input"
+            styles="login-input"
             name="senha"
             placeHolder="Senha"
             type="password"
             onChange={handleChange}
+            values={null}
           />
         </ form>
         <button className="submit" onClick={authenticate}> Login </button>
         <br />
+        <button className="submit" onClick={() => navigate("/create-account")}> Criar conta </button>
         <p className="forgot"> Esqueci minha senha. </p>
         <br />
       </div>
       <br />
-    </div>
+    </div >
   )
 }
 

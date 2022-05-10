@@ -1,0 +1,69 @@
+.card {
+	font-family: 'Ubuntu', sans-serif;
+	background-color: #FFFFFF;
+	width: 300px;
+	height: 350px;
+	margin: 7em auto;
+	border-radius: 1.5em;
+	box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+	position: relative;
+	left: 10%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+
+}
+
+.card:hover {
+	box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.21);
+	cursor: pointer;
+}
+
+.branch {
+	color: #d49921;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	font-size: 23px;
+	display: flex;
+	justify-content: center;
+
+}
+
+.label {
+	padding-top: 10px;
+	color: #424242;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	word-break: normal;
+	white-space: normal;
+	width: 98%;
+	height: 100%;
+	border: none;
+	resize: none;
+	text-align: center;
+}
+
+.label-true {
+	padding-top: 10px;
+	color: #4bc934;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+}
+
+
+.label-false {
+	padding-top: 10px;
+	color: #d43131;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+}

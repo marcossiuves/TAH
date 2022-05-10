@@ -1,32 +1,3 @@
-/* .main {
-	position: absolute;
-	width: 100%;
-	height: 100px;
-	background-color: #FFFFFF;
-	border-bottom-left-radius: 20px;
-	border-bottom-right-radius: 20px;
-	display: flex;
-
-
-}
-
-.logo {
-	border: 50%;
-
-}
-
-.links {
-	display: flex;
-	justify-content: flex-end;
-	align-self: left;
-	width: 500px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	font-family: sans-serif;
-	color: rgb(203, 149, 0); 
-}	
-	*/
 .header {
 	overflow: hidden;
 	background-color: #ffffff;
@@ -35,7 +6,7 @@
 	border-bottom-right-radius: 20px;
 }
 
-.header a {
+.header b {
 	float: left;
 	color: black;
 	text-align: center;
@@ -46,17 +17,19 @@
 	border-radius: 20px;
 }
 
-.header a.logo {
+.header img.logo {
 	font-size: 25px;
 	font-weight: bold;
+	width: 70px;
+	height: 50px;
 }
 
-.header a:hover {
+.header b:hover {
 	background-color: #ffce8e;
 	color: white;
 }
 
-.header a.active {
+.header b.active {
 	background-color: #ffce8e;
 	color: white;
 }

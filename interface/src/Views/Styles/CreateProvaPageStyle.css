@@ -9,40 +9,31 @@
 	position: absolute;
 	left: 23%;
 	display: flex;
-	justify-content: left;
-	flex-direction: column;
-	color: #f0a524;
-	align-items: left;
-}
-
-b {
-	font-size: 18px;
-	color: rgb(54, 113, 201);
-	padding: 20px;
-}
-
-b:hover {
-	cursor: pointer;
-
-}
-
-
-.submit {
-	display: flex;
 	justify-content: center;
-	cursor: pointer;
-	border-radius: 7px;
-	color: #fff;
-	background: linear-gradient(to top, #ffbd7c, #edae66);
-	border: 0;
-	padding-left: 40px;
-	padding-right: 40px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 13px;
-	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+	flex-direction: column;
+	text-align: center;
+}
 
+
+.body-question {
+	font-family: 'Ubuntu', sans-serif;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: fit-content;
+	border-radius: 10px;
+	flex-direction: column;
+}
+
+.body-question-alternatives {
+	font-family: 'Ubuntu', sans-serif;
+	background-color: #ffffff;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: left;
+	flex-direction: row;
+	margin-left: 20px;
 }
 
 .question-field {
@@ -54,4 +45,10 @@ b:hover {
 	border-radius: 4px;
 	background-color: #f8f8f8;
 	font-size: 16px;
+}
+
+.send-button {
+	left: 50%;
+	display: flex;
+	align-items: center;
 }

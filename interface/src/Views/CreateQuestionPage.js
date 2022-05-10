@@ -3,9 +3,8 @@ import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
 import { postNewQuestion } from "../services/PostServices";
-import axios from "axios";
 import './Styles/CreateQuestionPageStyle.css'
-
+import { cadastroQuestoes } from "../services/Services";
 
 const CreateQuestionPage = () => {
   const [questionValues, setQuestionValues] = useState({})
@@ -24,16 +23,22 @@ const CreateQuestionPage = () => {
     { id: 5, name: "E" },
   ]
 
+  const createQuestion = () => {
+    cadastroQuestoes(questionValues)
+  }
+
+
   return (
 
     <div className="main-question">
 
-      <h2> Cadastro de perguntas </h2>
+      <h2> Cadastro de perguntas -nome da prova-</h2>
       <textarea
         className="question-field"
         placeholder="Enunciado da pergunta..."
         name="enunciado"
         maxLength={2000}
+        // @ts-ignore
         resize="none"
         onChange={event => handleChange(event.target.name, event.target.value)}
       />
@@ -42,7 +47,7 @@ const CreateQuestionPage = () => {
           <div className="body-question-alternatives">
             <h3> {alternativa}: </h3>
             <StandardInput
-              style="question-input"
+              styles="question-input"
               name={alternativa}
               placeHolder={`Alternativa ${alternativa}`}
               type="text"
@@ -53,15 +58,16 @@ const CreateQuestionPage = () => {
         ))}
         <h3> Resposta correta: </h3>
         <StandardSelectBox
+          field={"answer"}
           options={options}
           onChange={handleChange}
         />
       </div>
       <div className="send-button">
         <Button
-          onClick={() => console.log(questionValues)}
+          onClick={() => createQuestion()}
         >
-          Enviar
+          Cadastrar Questao
         </Button>
       </div>
     </div>

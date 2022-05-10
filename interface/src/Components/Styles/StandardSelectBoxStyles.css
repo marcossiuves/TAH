@@ -1,8 +1,17 @@
 .custom-select {
-	position: relative;
-	font-family: Arial;
-	width: 50%;
-	height: 30px;
+	width: 200px;
+	color: rgb(38, 50, 56);
+	font-weight: 700;
+	font-size: 14px;
+	letter-spacing: 1px;
+	background: rgba(136, 126, 126, 0.04);
+	padding: 10px;
+	border: none;
 	border-radius: 10px;
-	margin-bottom: 20px;
+	outline: none;
+	margin-left: 20px;
+	border: 2px solid rgba(0, 0, 0, 0.20);
+	text-align: left;
+	font-family: 'Ubuntu', sans-serif;
+
 }
