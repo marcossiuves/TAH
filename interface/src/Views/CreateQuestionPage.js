@@ -2,18 +2,25 @@ import React, { useState } from "react";
 import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
-import { postNewQuestion } from "../services/PostServices";
 import './Styles/CreateQuestionPageStyle.css'
 import { cadastroQuestoes } from "../services/Services";
 
 const CreateQuestionPage = () => {
   const [questionValues, setQuestionValues] = useState({})
 
-  const alternativas = ["a", "b", "c", "d", "e"]
 
   const handleChange = (field, value) => {
     setQuestionValues({ ...questionValues, [field]: value })
   }
+
+
+  const alternativas = [
+    "option_a",
+    "option_b",
+    "option_c",
+    "option_d",
+    "option_e"
+  ]
 
   const options = [
     { id: 1, name: "A" },
@@ -28,6 +35,7 @@ const CreateQuestionPage = () => {
   }
 
 
+
   return (
 
     <div className="main-question">
@@ -36,7 +44,7 @@ const CreateQuestionPage = () => {
       <textarea
         className="question-field"
         placeholder="Enunciado da pergunta..."
-        name="enunciado"
+        name="statement"
         maxLength={2000}
         // @ts-ignore
         resize="none"
@@ -58,7 +66,7 @@ const CreateQuestionPage = () => {
         ))}
         <h3> Resposta correta: </h3>
         <StandardSelectBox
-          field={"answer"}
+          field={"right_option"}
           options={options}
           onChange={handleChange}
         />

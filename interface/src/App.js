@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import LandigPage from './Views/LandingPage';
 import CreateProvaPage from './Views/CreateProvaPage';
 import CreateAccountPage from './Views/CreateAccountPage';
+import EditQuestionPage from './Views/EditQuestionPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/create-test" element={<CreateProvaPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/create-account" element={<CreateAccountPage />} />
+          <Route path="/edit-question/:id" element={<EditQuestionPage />} />
           {/* <Route path="/start-test/:id" element={<CreateQuestionPage />} /> */}
           <Route path="/login" element={<LoginPage />} />
           {/* <Route path="/faq" element={<FaqPage />} /> */}

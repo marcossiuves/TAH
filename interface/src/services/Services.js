@@ -40,26 +40,37 @@ export const retrieveToken = () => {
 }
 
 
+export const fetchQuestao = (id) => {
+	axios.get(`${API_HOST}/${id}`)
+}
+
+
 export const cadastroQuestoes = (data) => {
-	axios.post(`${API_HOST}/provas`, {
-		header: `Authorization: JWT ${token}`
-	}, { data })
+	axios.post(`${API_HOST}/cadastrar`, { data })
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}
+
+export const editaQuestao = (questaoId, data) => {
+	axios.post(`${API_HOST}/editar/${questaoId}`, { data })
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
 }
 
 
-export const deleteQuestoes = (questaoId, provaId) => {
-	axios.delete(`${API_HOST}/provas/${provaId}/${questaoId}`)
+export const deletaQuestao = (questaoId) => {
+	axios.delete(`${API_HOST}/deletar/${questaoId}`)
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
 }
+
+
+
+
 
 
 export const criarProva = (data) => {
-	axios.post(`${API_HOST}/provas`, {
-		header: `Authorization: JWT ${token}`
-	}, { data })
+	axios.post(`${API_HOST}/provas`, { data })
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
 }
@@ -77,4 +88,53 @@ export const criarUsuario = (data) => {
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
 }
+
+
+
+
+// export const cadastroQuestoes = (data) => {
+// 	axios.post(`${API_HOST}/cadastrar`, {
+// 		header: `Authorization: JWT ${token}`
+// 	}, { data })
+// 		.then(response => redirectResult(response.status))
+// 		.catch(err => redirectResult(err.status))
+// }
+
+// export const editaQuestao = (questaoId, data) => {
+// 	axios.post(`${API_HOST}/editar/${questaoId}`, {
+// 		header: `Authorization: JWT ${token}`
+// 	}, { data })
+// 		.then(response => redirectResult(response.status))
+// 		.catch(err => redirectResult(err.status))
+// }
+
+
+// export const deletaQuestao = (questaoId) => {
+// 	axios.delete(`${API_HOST}/deletar/${questaoId}`)
+// 		.then(response => redirectResult(response.status))
+// 		.catch(err => redirectResult(err.status))
+// }
+
+
+// export const criarProva = (data) => {
+// 	axios.post(`${API_HOST}/provas`, {
+// 		header: `Authorization: JWT ${token}`
+// 	}, { data })
+// 		.then(response => redirectResult(response.status))
+// 		.catch(err => redirectResult(err.status))
+// }
+
+
+// export const deletarProva = (provaId) => {
+// 	axios.delete(`${API_HOST}/provas/${provaId}`)
+// 		.then(response => redirectResult(response.status))
+// 		.catch(err => redirectResult(err.status))
+// }
+
+
+// export const criarUsuario = (data) => {
+// 	axios.post(`${API_HOST}/login`, { data })
+// 		.then(response => redirectResult(response.status))
+// 		.catch(err => redirectResult(err.status))
+// }
 
