@@ -8,8 +8,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/usuarios', require('./user'))
-app.use('/tiposusuarios', require('./userType'))
-app.use('/questoes', require('./question'))
+app.use('/questoes', require('./question')) 
+app.use('/respostaDaQuestao', require('./questionResponse'))
+app.use('/cursos', require('./majorField'))
 
 app.get('/', (req, res) => {
   res.send({ msg: 'Rota do servidor da API testada. Good to go' })
