@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const database = require('../config');
+const database = require('../config/config');
 
 const MajorField = database.define('MajorField', {
     id_major_field: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },

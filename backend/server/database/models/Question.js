@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const database = require('../config');
+const database = require('../config/config');
 
 const Question = database.define('Question', {
     id_question: { type: DataTypes.INTEGER, autoIncrement: true, allowNull: false, primaryKey: true, },
