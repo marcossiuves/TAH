@@ -1,7 +1,8 @@
 const { DataTypes } = require('sequelize');
 const database = require('../config/config');
 
-const Question = database.define('Question', {
+const Question = database.define('Question', 
+{
     id_question: { type: DataTypes.INTEGER, autoIncrement: true, allowNull: false, primaryKey: true, },
     statement: { type: DataTypes.STRING, allowNull: false },
     option_a: { type: DataTypes.STRING, allowNull: false },

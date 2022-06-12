@@ -1,11 +1,15 @@
 
 const Question = require('../database/models/Question')
+const QuestionExam = require('../database/models/QuestionExam')
 
 exports.createQuestion = async (req, res) => {
     try {
+        // pegar REQ.PARAM.id_exam /:id_exam da rota
+        // CREATE QuestionExam, depois da question
         let content = req.body;
         if (req.body.evaluated === true) content.evaluated = false;
-        const questions = await Question.create(content);
+        const question = await Question.create(content);
+
         res.status(201).send({ msg: 'Deu certo o cadastro', content: questions })
     } catch (e) {
         console.error(e);
