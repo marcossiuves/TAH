@@ -1,12 +1,15 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://postgres@localhost:5432/facul', {dialect: 'postgres', password: 'root', logging: false});
+const DB = require('./databaseVariables')
+const sequelize = new Sequelize(`postgres://postgres@localhost:5432/${DB.NAME}`,
+    { dialect: 'postgres', password: DB.USERPASSWORD, logging: false }
+);
 
 (async () => {
     try {
         const resultado = await sequelize.sync();
         // console.log(resultado);
     } catch (error) {
-        // console.log(error);
+        console.log(error);
     }
 })();
 
