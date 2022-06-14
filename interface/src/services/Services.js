@@ -72,13 +72,13 @@ export const deleteQuestion = (questaoId) => {
 
 // Exames - Provas
 
-export const fetchExam = (id) => {
+export const fetchExam = (id) =>
 	axios.get(`${API_HOST}/prova/${id}`)
-}
+		.then(response => response.data)
 
-export const fetchAllExams = () => {
+export const fetchAllExams = () =>
 	axios.get(`${API_HOST}/prova/`)
-}
+		.then(response => response.data)
 
 export const createExam = (data) => {
 	axios.post(`${API_HOST}/prova/cadastrar`, data)
@@ -101,17 +101,15 @@ export const deleteExam = (examId) => {
 
 // Usuarios
 
-export const fetchUser = () => {
-	axios.post(`${API_HOST}/usuarios/`)
-		.then(response => redirectResult(response.status))
-		.catch(err => redirectResult(err.status))
-}
+export const fetchUser = () =>
+	axios.get(`${API_HOST}/usuarios/`)
+		.then(response => response.data)
 
-export const fetchAllUsers = () => {
-	axios.post(`${API_HOST}/usuarios/`)
-		.then(response => redirectResult(response.status))
-		.catch(err => redirectResult(err.status))
-}
+
+export const fetchAllUsers = () =>
+	axios.get(`${API_HOST}/usuarios/`)
+		.then(response => response.data)
+
 
 export const createUser = (data) => {
 	axios.post(`${API_HOST}/usuarios/cadastrar`, data)
@@ -134,17 +132,15 @@ export const deleteUser = (userId) => {
 
 // Cursos
 
-export const fetchCourse = () => {
-	axios.post(`${API_HOST}/cursos/`)
-		.then(response => redirectResult(response.status))
-		.catch(err => redirectResult(err.status))
-}
+export const fetchCourse = (id) =>
+	axios.get(`${API_HOST}/cursos/${id}`)
+		.then(response => response.data)
 
-export const fetchAllCourses = () => {
-	axios.post(`${API_HOST}/cursos/`)
-		.then(response => redirectResult(response.status))
-		.catch(err => redirectResult(err.status))
-}
+
+export const fetchAllCourses = () =>
+	axios.get(`${API_HOST}/cursos/`)
+		.then(response => response.data)
+
 
 export const createCourse = (data) => {
 	axios.post(`${API_HOST}/cursos/cadastrar`, data)

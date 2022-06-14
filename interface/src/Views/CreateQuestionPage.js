@@ -3,7 +3,7 @@ import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
 import './Styles/CreateQuestionPageStyle.css'
-import { createQuestion, fetchAllQuestions } from "../services/Services";
+import { createQuestion } from "../services/Services";
 
 const CreateQuestionPage = () => {
   const [questionValues, setQuestionValues] = useState({})
@@ -31,8 +31,7 @@ const CreateQuestionPage = () => {
   ]
 
   const handleCreateQuestion = () => {
-    fetchAllQuestions()
-    // createQuestion(questionValues)
+    createQuestion(questionValues)
   }
 
 

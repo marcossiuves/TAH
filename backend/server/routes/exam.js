@@ -6,7 +6,8 @@ const examController = require('../controllers/examController')
 router.post('/cadastrar', async (req, res) => {
     await examController.createExam(req, res)
 })
-router.get('/', cors(), async (req, res) => {
+// deletar o NEXT caso precise
+router.get('/', async (req, res, next) => {
     await examController.retrieveExams(req, res)
 });
 router.get('/:id', async (req, res) => {

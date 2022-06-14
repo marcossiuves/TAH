@@ -3,7 +3,7 @@ import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
 import "./Styles/CreateProvaPageStyle.css";
-import { createExam } from "../services/Services";
+import { createExam, fetchAllCourses } from "../services/Services";
 import { useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -22,12 +22,7 @@ const CreateProvaPage = () => {
 	}
 
 	const fetchCursos = () => {
-		setCursos([
-			{ id: 1, name: "Sistemas da Informação" },
-			{ id: 2, name: "Engenharia Civil" },
-			{ id: 3, name: "Arquitetura" },
-			{ id: 4, name: "Direito" },
-		])
+		fetchAllCourses().then(res => setCursos(res))
 	}
 
 	const fetchDisciplinas = () => {
