@@ -3,7 +3,7 @@ import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
 import './Styles/CreateQuestionPageStyle.css'
-import { cadastroQuestoes } from "../services/Services";
+import { createQuestion, fetchAllQuestions } from "../services/Services";
 
 const CreateQuestionPage = () => {
   const [questionValues, setQuestionValues] = useState({})
@@ -15,11 +15,11 @@ const CreateQuestionPage = () => {
 
 
   const alternativas = [
-    "option_a",
-    "option_b",
-    "option_c",
-    "option_d",
-    "option_e"
+    "A) ",
+    "B) ",
+    "C) ",
+    "D) ",
+    "E) ",
   ]
 
   const options = [
@@ -30,8 +30,9 @@ const CreateQuestionPage = () => {
     { id: 5, name: "E" },
   ]
 
-  const createQuestion = () => {
-    cadastroQuestoes(questionValues)
+  const handleCreateQuestion = () => {
+    fetchAllQuestions()
+    // createQuestion(questionValues)
   }
 
 
@@ -73,7 +74,7 @@ const CreateQuestionPage = () => {
       </div>
       <div className="send-button">
         <Button
-          onClick={() => createQuestion()}
+          onClick={() => handleCreateQuestion()}
         >
           Cadastrar Questao
         </Button>

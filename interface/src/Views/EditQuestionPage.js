@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
-import { deletaQuestao, editaQuestao } from '../services/Services';
+import { deleteQuestion, editQuestion } from '../services/Services';
 import { useParams } from "react-router-dom";
 import "./Styles/EditQuestionPageStyles.css";
 
@@ -33,11 +33,11 @@ const EditQuestionPage = () => {
 	}
 
 	const editarQuestao = () => {
-		editaQuestao(id, questionValues)
+		editQuestion(id, questionValues)
 	}
 
 	const deletarQuestao = () => {
-		deletaQuestao(id)
+		deleteQuestion(id)
 	}
 
 	const fetchQuestaoData = () => [

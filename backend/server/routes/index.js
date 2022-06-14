@@ -22,4 +22,6 @@ app.listen(port, () => {
   console.log(`Ouvindo servidor na porta: ${port}`)
 })
 
+// app.setHeader('Access-Control-Allow-Origin', '*');
+
 module.exports = router;

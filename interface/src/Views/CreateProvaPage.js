@@ -3,7 +3,7 @@ import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
 import "./Styles/CreateProvaPageStyle.css";
-import { criarProva } from "../services/Services";
+import { createExam } from "../services/Services";
 import { useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -51,7 +51,7 @@ const CreateProvaPage = () => {
 			toast.error("Numero de questões não pode ser maior que 40!")
 		}
 		else {
-			criarProva(provaValues);
+			createExam(provaValues);
 			navigate(`/prova/${1}/create-question/${1}`)
 		}
 	}
