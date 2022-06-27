@@ -26,7 +26,9 @@ export const login = (data) => {
 }
 
 export const loginProcess = (data) => {
-	localStorage.setItem('token', data)
+	localStorage.setItem('username', data.username)
+	localStorage.setItem('password', data.password)
+	localStorage.setItem('token', data.token)
 	retrieveToken()
 }
 
@@ -39,6 +41,16 @@ export const retrieveToken = () => {
 	token = localStorage.getItem('token')
 }
 
+
+// const makeRequest = async () => {
+// 	const token = localStorage.getItem('jwt');
+// 	const config = { headers: { 'x-auth-token': token } };
+// 	const response = await axios.get('http://localhost:8000/user', config)
+// 		.then(res => res.status === 200 ? true : false)
+// 		.catch(err => false);
+
+// 	return response;
+// }
 
 
 // Questoes
@@ -72,19 +84,20 @@ export const deleteQuestion = (questaoId) => {
 
 // Exames - Provas
 
-export const fetchExam = (id) =>
-	axios.get(`${API_HOST}/prova/${id}`)
+export const fetchExam = async (id) => {
+	const response = await axios.get(`${API_HOST}/prova/${id}`)
 		.then(response => response.data)
+		.catch(err => err.data)
+	return response
+}
 
 export const fetchAllExams = () =>
 	axios.get(`${API_HOST}/prova/`)
 		.then(response => response.data)
 
-export const createExam = (data) => {
+export const createExam = (data) =>
 	axios.post(`${API_HOST}/prova/cadastrar`, data)
-		.then(response => redirectResult(response.status))
-		.catch(err => redirectResult(err.status))
-}
+		.then(response => response.data)
 
 export const editExam = (examId, data) => {
 	axios.post(`${API_HOST}/prova/editar/${examId}`, data)

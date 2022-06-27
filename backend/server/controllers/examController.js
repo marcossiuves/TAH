@@ -1,5 +1,6 @@
 
 const Exam = require('../database/models/Exam')
+const QuestionExam = require('../database/models/QuestionExam')
 
 exports.createExam = async (req, res) => {
     try {
@@ -27,6 +28,19 @@ exports.retrieveExams = async (req, res) => {
 exports.retrieveExam = async (req, res) => {
     try {
         const exams = await Exam.findByPk(req.params.id);
+        const questions = await QuestionExam.findAll({ where: { id_exam: req.params.id } })
+        if (exams) res.send({ exams, questions });
+        else res.status(400).send({ msg: 'Prova não existe' });
+    } catch (e) {
+        console.error(e)
+        res.status(400).send({ erro: e })
+    }
+}
+
+exports.retrieveExamQuestions = async (req, res) => {
+    try {
+        const exams = await Exam.findByPk(req.params.id);
+        // const questions = await 
         if (exams) res.send(exams);
         else res.status(400).send({ msg: 'Prova não existe' });
     } catch (e) {

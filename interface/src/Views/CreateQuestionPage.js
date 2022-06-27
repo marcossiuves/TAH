@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
 import './Styles/CreateQuestionPageStyle.css'
-import { createQuestion } from "../services/Services";
+import { createQuestion, fetchExam } from "../services/Services";
+import { useParams } from "react-router";
 
 const CreateQuestionPage = () => {
   const [questionValues, setQuestionValues] = useState({})
-
+  const [testSpecs, setTestSpecs] = useState({})
 
   const handleChange = (field, value) => {
     setQuestionValues({ ...questionValues, [field]: value })
@@ -15,11 +16,11 @@ const CreateQuestionPage = () => {
 
 
   const alternativas = [
-    "A) ",
-    "B) ",
-    "C) ",
-    "D) ",
-    "E) ",
+    { id: 1, name: "A) ", field: "option_a" },
+    { id: 2, name: "B) ", field: "option_b" },
+    { id: 3, name: "C) ", field: "option_c" },
+    { id: 4, name: "D) ", field: "option_d" },
+    { id: 5, name: "E) ", field: "option_e" },
   ]
 
   const options = [
@@ -34,13 +35,23 @@ const CreateQuestionPage = () => {
     createQuestion(questionValues)
   }
 
+  const params = useParams()
+
+  const getTest = () => {
+    // setTestSpecs(fetchExam(params.id))
+    setQuestionValues({})
+  }
+
+  useEffect(() => {
+    getTest();
+  }, [])
 
 
   return (
 
     <div className="main-question">
 
-      <h2> Cadastro de perguntas -nome da prova-</h2>
+      <h2> Cadastro de perguntas </h2>
       <textarea
         className="question-field"
         placeholder="Enunciado da pergunta..."
@@ -53,11 +64,11 @@ const CreateQuestionPage = () => {
       <div className="body-question">
         {alternativas.map((alternativa) => (
           <div className="body-question-alternatives">
-            <h3> {alternativa}: </h3>
+            <h3> {alternativa.name}: </h3>
             <StandardInput
               styles="question-input"
-              name={alternativa}
-              placeHolder={`Alternativa ${alternativa}`}
+              name={alternativa.field}
+              placeHolder={`Alternativa ${alternativa.name}`}
               type="text"
               onChange={handleChange}
               values={null}
