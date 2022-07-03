@@ -35,6 +35,5 @@
   "devDependencies": {
     "nodemon": "^2.0.16",
     "sequelize-cli": "^6.4.1"
-  },
-  "proxy": "http://localhost:3001"
+  }
 }
