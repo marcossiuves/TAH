@@ -34,6 +34,8 @@ export const loginProcess = (data) => {
 
 export const logoutProcess = () => {
 	localStorage.removeItem('token')
+	localStorage.removeItem('username')
+	localStorage.removeItem('password')
 }
 
 

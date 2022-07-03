@@ -32,42 +32,42 @@ const CreateAccountPage = () => {
 				<form className="form1">
 					<StandardInput
 						styles="login-input"
-						name={"Nome"}
+						name={"name"}
 						placeHolder={"Nome"}
 						type="text"
-						onChange={null}
+						onChange={handleChange}
 						values={null}
 					/>
 					<StandardInput
 						styles="login-input"
-						name={"Universidade"}
-						placeHolder={"Universidade"}
+						name={"email"}
+						placeHolder={"Email"}
 						type="text"
-						onChange={null}
+						onChange={handleChange}
 						values={null}
 					/>
-					<StandardInput
+					{/* <StandardInput
 						styles="login-input"
 						name={"Matricula"}
 						placeHolder={"Matricula"}
 						type="text"
 						onChange={null}
 						values={null}
-					/>
+					/> */}
 					<StandardInput
 						styles="login-input"
-						name={"Email"}
-						placeHolder={"Email"}
+						name={"username"}
+						placeHolder={"Usuario"}
 						type="text"
-						onChange={null}
+						onChange={handleChange}
 						values={null}
 					/>
 					<StandardInput
 						styles="login-input"
-						name={"Nome de usuario"}
-						placeHolder={"Nome de usuario"}
-						type="text"
-						onChange={null}
+						name={"password"}
+						placeHolder={"Senha"}
+						type="password"
+						onChange={handleChange}
 						values={null}
 					/>
 

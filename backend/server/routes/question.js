@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const questionController = require('../controllers/questionController')
 
-router.post('/provas/:id_prova/cadastrar', (req, res) => {
+// router.post('/provas/:id_prova/cadastrar', (req, res) => {
+router.post('/cadastrar', (req, res) => {
     questionController.createQuestion(req, res);
 })
 router.get('/', (req, res) => {

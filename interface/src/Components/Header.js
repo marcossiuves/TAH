@@ -19,7 +19,7 @@ const Header = () => {
 	}
 
 	const fetchLoggedStatus = () => {
-		if (localStorage.getItem('token')) {
+		if (localStorage.getItem('username')) {
 			setIsLoged(true)
 		}
 		else {

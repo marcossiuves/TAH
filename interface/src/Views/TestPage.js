@@ -32,7 +32,7 @@ const TestPage = () => {
 			.then(response => (
 				setTestSpecs(response.data.exams),
 				setTestQuestions(response.data.questions),
-				fetchQuestionData((response.data.questions)[0])
+				fetchQuestionData((response.data.questions)[0].id_question_exam)
 			))
 			.catch(err => err.data)
 	}
@@ -55,6 +55,8 @@ const TestPage = () => {
 			// @ts-ignore
 			.then(res => setCurrentQuestion(currentQuestion + 1))
 			.catch(err => err.status)
+
+		fetchQuestionData(testQuestions[currentQuestion + 1].id_question_exam)
 	}
 
 	// @ts-ignore

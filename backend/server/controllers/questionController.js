@@ -10,7 +10,7 @@ exports.createQuestion = async (req, res) => {
         if (req.body.evaluated === true) content.evaluated = false;
         const question = await Question.create(content);
 
-        res.status(201).send({ msg: 'Deu certo o cadastro', content: questions })
+        res.status(201).send({ msg: 'Deu certo o cadastro', content: question })
     } catch (e) {
         console.error(e);
         res.status(400).send({ erro: e })

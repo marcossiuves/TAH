@@ -16,12 +16,14 @@ const SelectTestPage = () => {
 	}, [])
 
 	return (
+
 		<div className="main">
+			{console.log(tests)}
 			<div className="turmas">
 				<div className="grid-container">
 					{tests.map(test => (
 						// @ts-ignore
-						<ProvaCard concluded={false} grade={null} id={test.id_exam} theme={test.title} title={test.subject} />
+						<ProvaCard id={test.id_exam} theme={test.title} title={test.subject} questions={test.question_amount} />
 					))}
 				</div>
 			</div>
