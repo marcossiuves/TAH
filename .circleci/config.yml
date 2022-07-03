@@ -25,7 +25,6 @@ jobs:
           paths:
             - ./interface/
 
-      #- run: cd /tests/ npm run Test.js
       - run: echo "Aqui deveria testar..."
           
 workflows:
