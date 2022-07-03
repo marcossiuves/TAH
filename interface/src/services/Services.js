@@ -9,7 +9,9 @@ let token
 export const redirectResult = (status) => {
 	switch (status) {
 		case 200:
-			return toast.success('Atualizado com sucesso');
+			return toast.success('Sucesso');
+		case 201:
+			return toast.success('Sucesso');
 		case 400:
 			return toast.error('Houve um erro, cheque as informacoes');
 		case 404:
@@ -19,17 +21,30 @@ export const redirectResult = (status) => {
 	}
 }
 
-export const login = (data) => {
-	axios.post(`${API_HOST}/login/`, { data })
-		.then(response => loginProcess(response))
-		.catch(err => redirectResult(err.status))
+export const retrieveToken = () => {
+	token = localStorage.getItem('token')
 }
 
-export const loginProcess = (data) => {
-	localStorage.setItem('username', data.username)
-	localStorage.setItem('password', data.password)
-	localStorage.setItem('token', data.token)
-	retrieveToken()
+const wrongLogin = () => {
+	redirectResult(400)
+	return 400
+}
+
+export const login = (data) => {
+	const response = axios.post(`${API_HOST}/usuarios/login`, data)
+		.then(response => loginProcess(response.data.user, response.status))
+		.catch(err => wrongLogin())
+
+	return response
+}
+
+export const loginProcess = (user, status) => {
+	localStorage.setItem('username', user.registration)
+	localStorage.setItem('password', user.password)
+	redirectResult(status)
+	return 200
+	// localStorage.setItem('token', data.token)
+	// retrieveToken()
 }
 
 export const logoutProcess = () => {
@@ -39,9 +54,6 @@ export const logoutProcess = () => {
 }
 
 
-export const retrieveToken = () => {
-	token = localStorage.getItem('token')
-}
 
 
 // const makeRequest = async () => {
@@ -65,8 +77,8 @@ export const fetchAllQuestions = () => {
 	axios.get(`${API_HOST}/questoes/`)
 }
 
-export const createQuestion = (data) => {
-	axios.post(`${API_HOST}/questoes/cadastrar`, data)
+export const createQuestion = (id, data) => {
+	axios.post(`${API_HOST}/prova/${id}/questao/cadastrar`, data)
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
 }

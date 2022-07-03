@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router';
 const LoginPage = () => {
   const [loginPayload, setLoginPayload] = useState({});
 
-
   const handleChange = (field, value) => {
     setLoginPayload({ ...loginPayload, [field]: value })
   }
@@ -17,10 +16,7 @@ const LoginPage = () => {
   let navigate = useNavigate();
 
   const authenticate = () => {
-    console.log(loginPayload)
-    login(loginPayload)
-    // loginProcess(loginPayload)
-    // criarUsuario(loginPayload)
+    login(loginPayload).then(response => { if (response == 200) { navigate('/select-test') } })
   }
 
 
@@ -32,7 +28,7 @@ const LoginPage = () => {
         <form className="form1">
           <StandardInput
             styles="login-input"
-            name="usuario"
+            name="registration"
             placeHolder="Usuario"
             type="text"
             onChange={handleChange}
@@ -40,7 +36,7 @@ const LoginPage = () => {
           />
           <StandardInput
             styles="login-input"
-            name="senha"
+            name="password"
             placeHolder="Senha"
             type="password"
             onChange={handleChange}

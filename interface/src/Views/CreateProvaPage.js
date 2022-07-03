@@ -41,9 +41,16 @@ const CreateProvaPage = () => {
 
 	const fetchConteudos = () => {
 		setConteudo([
-			{ id: 1, name: "conteudo 1" },
-			{ id: 2, name: "conteudo 2" },
-			{ id: 3, name: "conteudo 3" },
+			{ id: 1, name: "1 Semestre" },
+			{ id: 2, name: "2 Semestre" },
+			{ id: 3, name: "3 Semestre" },
+			{ id: 4, name: "4 Semestre" },
+			{ id: 5, name: "5 Semestre" },
+			{ id: 6, name: "6 Semestre" },
+			{ id: 7, name: "7 Semestre" },
+			{ id: 8, name: "8 Semestre" },
+			{ id: 9, name: "9 Semestre" },
+			{ id: 10, name: "1 Semestre" },
 		])
 	}
 

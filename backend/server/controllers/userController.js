@@ -54,3 +54,16 @@ exports.deleteUser = async (req, res) => {
         res.status(400).send({ erro: e })
     }
 }
+
+exports.login = async (req, res) => {
+    try {
+        const user = await User.findOne({ where: { registration: req.body.registration, password: req.body.password } })
+        console.log(user)
+        // const response = user
+        if (user) res.send({ user });
+        else res.status(400).send({ msg: 'Usuário não existe' });
+    } catch (e) {
+        console.error(e)
+        res.status(400).send({ erro: e })
+    }
+}

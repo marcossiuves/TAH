@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Button from "../Components/Button";
 import StandardInput from "../Components/StandardInput";
 import "./Styles/CreateAccountPageStyle.css"
-import { login } from '../services/Services';
+import { createUser } from '../services/Services';
 import { useNavigate } from 'react-router';
 
 
 const CreateAccountPage = () => {
-	const [loginPayload, setLoginPayload] = useState({});
+	const [loginPayload, setLoginPayload] = useState({ id_user_type: 1 });
 
 
 	const handleChange = (field, value) => {
@@ -17,10 +17,7 @@ const CreateAccountPage = () => {
 	let navigate = useNavigate();
 
 	const authenticate = () => {
-		console.log(loginPayload)
-		login(loginPayload)
-		// loginProcess(loginPayload)
-		// criarUsuario(loginPayload)
+		createUser(loginPayload)
 	}
 
 
@@ -32,31 +29,15 @@ const CreateAccountPage = () => {
 				<form className="form1">
 					<StandardInput
 						styles="login-input"
-						name={"name"}
-						placeHolder={"Nome"}
-						type="text"
-						onChange={handleChange}
-						values={null}
-					/>
-					<StandardInput
-						styles="login-input"
 						name={"email"}
 						placeHolder={"Email"}
 						type="text"
 						onChange={handleChange}
 						values={null}
 					/>
-					{/* <StandardInput
-						styles="login-input"
-						name={"Matricula"}
-						placeHolder={"Matricula"}
-						type="text"
-						onChange={null}
-						values={null}
-					/> */}
 					<StandardInput
 						styles="login-input"
-						name={"username"}
+						name={"registration"}
 						placeHolder={"Usuario"}
 						type="text"
 						onChange={handleChange}
@@ -72,7 +53,7 @@ const CreateAccountPage = () => {
 					/>
 
 				</ form>
-				<button className="submit" onClick={authenticate}> Cadastrar </button>
+				<button className="submit" onClick={() => authenticate()}> Cadastrar </button>
 				<br />
 			</div>
 			<br />

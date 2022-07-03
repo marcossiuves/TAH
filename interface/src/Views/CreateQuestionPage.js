@@ -31,11 +31,12 @@ const CreateQuestionPage = () => {
     { id: 5, name: "E" },
   ]
 
+  const params = useParams()
+
   const handleCreateQuestion = () => {
-    createQuestion(questionValues)
+    createQuestion(params.id, questionValues)
   }
 
-  const params = useParams()
 
   const getTest = () => {
     // setTestSpecs(fetchExam(params.id))

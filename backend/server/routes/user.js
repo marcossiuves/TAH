@@ -17,5 +17,8 @@ router.patch('/editar/:id', (req, res) => {
 router.delete('/deletar/:id', (req, res) => {
     userController.deleteUser(req, res);
 })
+router.post('/login', (req, res) => {
+    userController.login(req, res);
+})
 
 module.exports = router;
