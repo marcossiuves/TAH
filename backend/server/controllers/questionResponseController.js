@@ -1,14 +1,8 @@
-
 const QuestionResponse = require('../database/models/QuestionResponse')
 
 exports.createQuestionResponse = async (req, res) => {
     try {
-        // pegar REQ.PARAM.id_exam /:id_exam da rota
-        // pegar REQ.PARAM.id_question /:id_question da rota
-        // pegar id_user enviado da memória do navegador
-        // pegar req.body.option do formulário de envio
         let content = req.body;
-        if (req.body.evaluated === true) content.evaluated = false;
         const questionResponse = await QuestionResponse.create(content);
         res.status(201).send({ msg: 'Deu certo o cadastro', content: questionResponse })
     } catch (e) {
