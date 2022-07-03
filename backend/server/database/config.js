@@ -1,19 +1,19 @@
-require('dotenv').config()
-const senha = String(process.env.DATABASE_USERPASSWORD);
-const db = String(process.env.DATABASE_NAME);
-const Sequelize = require('sequelize');
+require("dotenv").config();
+const { DATABASE_USERPASSWORD, DATABASE_NAME } = process.env;
+const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize(`postgres://postgres@localhost:5432/${db}`,
-    { dialect: 'postgres', password: senha, logging: false }
+const sequelize = new Sequelize(
+  `postgres://postgres@localhost:5432/${DATABASE_NAME}`,
+  { dialect: "postgres", password: DATABASE_USERPASSWORD, logging: false }
 );
 
 (async () => {
-    try {
-        const resultado = await sequelize.sync();
-        // console.log(resultado);
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const resultado = await sequelize.sync();
+    console.log("Conectado ao banco e sincronizado.");
+  } catch (error) {
+    console.log(error);
+  }
 })();
 
 module.exports = sequelize;

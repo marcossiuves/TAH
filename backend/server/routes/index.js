@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const port = process.env.SERVER_PORT;
+const { SERVER_PORT } = process.env;
 const cors = require("cors");
 const router = express.Router();
 
@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
   res.send({ msg: "Rota do servidor da API testada. Good to go" });
 });
 
-app.listen(port, () => {
-  console.log(`Ouvindo servidor na porta: ${port}`);
+app.listen(SERVER_PORT, () => {
+  console.log(`Ouvindo servidor na porta: ${SERVER_PORT}`);
 });
 
 module.exports = router;
