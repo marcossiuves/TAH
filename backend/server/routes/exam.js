@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const examController = require('../controllers/examController')
+const questionController = require('../controllers/questionController')
 
+router.post('/:id_exam/questao/cadastrar', async (req,res)=>{
+    await questionController.createRealQuestion(req,res)
+})
 router.post('/cadastrar', async (req, res) => {
     await examController.createExam(req,res)
 })
