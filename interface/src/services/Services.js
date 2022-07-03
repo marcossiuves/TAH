@@ -26,12 +26,16 @@ export const login = (data) => {
 }
 
 export const loginProcess = (data) => {
-	localStorage.setItem('token', data)
+	localStorage.setItem('username', data.username)
+	localStorage.setItem('password', data.password)
+	localStorage.setItem('token', data.token)
 	retrieveToken()
 }
 
 export const logoutProcess = () => {
 	localStorage.removeItem('token')
+	localStorage.removeItem('username')
+	localStorage.removeItem('password')
 }
 
 
@@ -40,101 +44,133 @@ export const retrieveToken = () => {
 }
 
 
-export const fetchQuestao = (id) => {
-	axios.get(`${API_HOST}/${id}`)
+// const makeRequest = async () => {
+// 	const token = localStorage.getItem('jwt');
+// 	const config = { headers: { 'x-auth-token': token } };
+// 	const response = await axios.get('http://localhost:8000/user', config)
+// 		.then(res => res.status === 200 ? true : false)
+// 		.catch(err => false);
+
+// 	return response;
+// }
+
+
+// Questoes
+
+export const fetchQuestion = (id) => {
+	axios.get(`${API_HOST}/questoes/${id}`)
 }
 
+export const fetchAllQuestions = () => {
+	axios.get(`${API_HOST}/questoes/`)
+}
 
-export const cadastroQuestoes = (data) => {
-	axios.post(`${API_HOST}/cadastrar`, { data })
+export const createQuestion = (data) => {
+	axios.post(`${API_HOST}/questoes/cadastrar`, data)
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
 }
 
-export const editaQuestao = (questaoId, data) => {
-	axios.post(`${API_HOST}/editar/${questaoId}`, { data })
+export const editQuestion = (questaoId, data) => {
+	axios.post(`${API_HOST}/questoes/editar/${questaoId}`, data)
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
 }
 
-
-export const deletaQuestao = (questaoId) => {
-	axios.delete(`${API_HOST}/deletar/${questaoId}`)
-		.then(response => redirectResult(response.status))
-		.catch(err => redirectResult(err.status))
-}
-
-
-
-
-
-
-export const criarProva = (data) => {
-	axios.post(`${API_HOST}/provas`, { data })
-		.then(response => redirectResult(response.status))
-		.catch(err => redirectResult(err.status))
-}
-
-
-export const deletarProva = (provaId) => {
-	axios.delete(`${API_HOST}/provas/${provaId}`)
-		.then(response => redirectResult(response.status))
-		.catch(err => redirectResult(err.status))
-}
-
-
-export const criarUsuario = (data) => {
-	axios.post(`${API_HOST}/login`, { data })
+export const deleteQuestion = (questaoId) => {
+	axios.delete(`${API_HOST}/questoes/deletar/${questaoId}`)
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
 }
 
 
+// Exames - Provas
+
+export const fetchExam = async (id) => {
+	const response = await axios.get(`${API_HOST}/prova/${id}`)
+		.then(response => response.data)
+		.catch(err => err.data)
+	return response
+}
+
+export const fetchAllExams = () =>
+	axios.get(`${API_HOST}/prova/`)
+		.then(response => response.data)
+
+export const createExam = (data) =>
+	axios.post(`${API_HOST}/prova/cadastrar`, data)
+		.then(response => response.data)
+
+export const editExam = (examId, data) => {
+	axios.post(`${API_HOST}/prova/editar/${examId}`, data)
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}
+
+export const deleteExam = (examId) => {
+	axios.delete(`${API_HOST}/provas/deletar/${examId}`)
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}
 
 
-// export const cadastroQuestoes = (data) => {
-// 	axios.post(`${API_HOST}/cadastrar`, {
-// 		header: `Authorization: JWT ${token}`
-// 	}, { data })
-// 		.then(response => redirectResult(response.status))
-// 		.catch(err => redirectResult(err.status))
-// }
+// Usuarios
 
-// export const editaQuestao = (questaoId, data) => {
-// 	axios.post(`${API_HOST}/editar/${questaoId}`, {
-// 		header: `Authorization: JWT ${token}`
-// 	}, { data })
-// 		.then(response => redirectResult(response.status))
-// 		.catch(err => redirectResult(err.status))
-// }
+export const fetchUser = () =>
+	axios.get(`${API_HOST}/usuarios/`)
+		.then(response => response.data)
 
 
-// export const deletaQuestao = (questaoId) => {
-// 	axios.delete(`${API_HOST}/deletar/${questaoId}`)
-// 		.then(response => redirectResult(response.status))
-// 		.catch(err => redirectResult(err.status))
-// }
+export const fetchAllUsers = () =>
+	axios.get(`${API_HOST}/usuarios/`)
+		.then(response => response.data)
 
 
-// export const criarProva = (data) => {
-// 	axios.post(`${API_HOST}/provas`, {
-// 		header: `Authorization: JWT ${token}`
-// 	}, { data })
-// 		.then(response => redirectResult(response.status))
-// 		.catch(err => redirectResult(err.status))
-// }
+export const createUser = (data) => {
+	axios.post(`${API_HOST}/usuarios/cadastrar`, data)
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}
+
+export const editUser = (userId, data) => {
+	axios.post(`${API_HOST}/usuarios/editar/${userId}`, data)
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}
+
+export const deleteUser = (userId) => {
+	axios.post(`${API_HOST}/usuarios/deletar/${userId}`)
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}
 
 
-// export const deletarProva = (provaId) => {
-// 	axios.delete(`${API_HOST}/provas/${provaId}`)
-// 		.then(response => redirectResult(response.status))
-// 		.catch(err => redirectResult(err.status))
-// }
+// Cursos
+
+export const fetchCourse = (id) =>
+	axios.get(`${API_HOST}/cursos/${id}`)
+		.then(response => response.data)
 
 
-// export const criarUsuario = (data) => {
-// 	axios.post(`${API_HOST}/login`, { data })
-// 		.then(response => redirectResult(response.status))
-// 		.catch(err => redirectResult(err.status))
-// }
+export const fetchAllCourses = () =>
+	axios.get(`${API_HOST}/cursos/`)
+		.then(response => response.data)
 
+
+export const createCourse = (data) => {
+	axios.post(`${API_HOST}/cursos/cadastrar`, data)
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}
+
+export const editCourse = (courseId, data) => {
+	axios.post(`${API_HOST}/cursos/editar/${courseId}`, data)
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}
+
+export const deleteCourse = (courseId) => {
+	axios.post(`${API_HOST}/cursos/deletar/${courseId}`)
+		.then(response => redirectResult(response.status))
+		.catch(err => redirectResult(err.status))
+}

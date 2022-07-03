@@ -7,10 +7,10 @@ import Header from './Components/Header';
 import SelectTestPage from './Views/SelectTestPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import LandigPage from './Views/LandingPage';
 import CreateProvaPage from './Views/CreateProvaPage';
 import CreateAccountPage from './Views/CreateAccountPage';
 import EditQuestionPage from './Views/EditQuestionPage';
+import TestPage from './Views/TestPage';
 
 function App() {
   return (
@@ -20,16 +20,15 @@ function App() {
         <ToastContainer />
         <Header />
         <Routes>
-          <Route index element={<LandigPage />} />
-          <Route path="/prova/:id/create-question/:id" element={<CreateQuestionPage />} />
+          <Route index element={<LoginPage />} />
+          <Route path="/prova/:id/create-question" element={<CreateQuestionPage />} />
           <Route path="/select-test" element={<SelectTestPage />} />
           <Route path="/create-test" element={<CreateProvaPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/create-account" element={<CreateAccountPage />} />
           <Route path="/edit-question/:id" element={<EditQuestionPage />} />
-          {/* <Route path="/start-test/:id" element={<CreateQuestionPage />} /> */}
+          <Route path="/test/:id" element={<TestPage />} />
           <Route path="/login" element={<LoginPage />} />
-          {/* <Route path="/faq" element={<FaqPage />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

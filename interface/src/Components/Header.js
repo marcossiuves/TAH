@@ -19,7 +19,7 @@ const Header = () => {
 	}
 
 	const fetchLoggedStatus = () => {
-		if (localStorage.getItem('token')) {
+		if (localStorage.getItem('username')) {
 			setIsLoged(true)
 		}
 		else {
@@ -35,9 +35,8 @@ const Header = () => {
 
 	return (
 		<div className="header">
-			<img src={logo} alt="Logo" className="logo" />
+			<img src={logo} alt="Logo" className="logo" onClick={() => navigate("/")} />
 			<div className="header-right">
-				<b onClick={() => navigate("/")}>Home</b>
 				<b onClick={() => navigate("/create-test")}>Cadastrar Prova</b>
 				<b onClick={() => navigate("/select-test")}>Simulados</b>
 				<b onClick={() => navigate("/faq")}>Ajuda</b>

@@ -1,19 +1,8 @@
 .App {
   /* text-align: center; */
   background: linear-gradient(to top, #FFDFB5, #FDEDD7);
-  height: 100vh;
+  height: 150vh;
   font-family: 'Ubuntu', sans-serif;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
