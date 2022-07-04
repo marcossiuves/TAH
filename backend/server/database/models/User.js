@@ -4,7 +4,7 @@ const UserType = require("./UserType");
 
 const User = database.define("User", {
   id_user: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-  registration: { type: DataTypes.INTEGER, allowNull: false },
+  registration: { type: DataTypes.STRING, allowNull: false },
   password: { type: DataTypes.STRING, allowNull: false },
   email: { type: DataTypes.STRING, allowNull: false },
   id_user_type: { type: DataTypes.INTEGER, allowNull: true, foreignKey: true },
