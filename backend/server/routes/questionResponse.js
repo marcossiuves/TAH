@@ -17,8 +17,11 @@ router.patch("/editar/:id", (req, res) => {
 router.delete("/deletar/:id", (req, res) => {
   questionResponseController.deleteQuestionResponse(req, res);
 });
-router.get("/conferirResposta/:id_question", (req, res) => {
+router.post("/conferirResposta/:id_question", (req, res) => {
   questionResponseController.evaluateUserResponse(req, res);
 });
+router.post("/conferirRespostas/:id_exam", (req, res) => {
+    questionResponseController.evaluateUserExam(req, res);
+  });
 
 module.exports = router;

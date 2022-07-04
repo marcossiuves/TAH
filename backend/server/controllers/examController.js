@@ -42,7 +42,6 @@ exports.retrieveExamQuestions = async (req, res) => {
       where: { id_exam: req.params.id_exam },
     });
     relatedQuestions.map((r)=> r.dataValues.id_exam);
-    console.log(relatedQuestions)
     if (relatedQuestions) res.send({relatedQuestions });
     else res.status(400).send({ msg: "Não existem questões associadas a essa prova." });
   } catch (e) {
