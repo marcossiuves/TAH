@@ -1,3 +1,4 @@
+const Question = require('../database/models/Question');
 const QuestionResponse = require('../database/models/QuestionResponse')
 
 exports.createQuestionResponse = async (req, res) => {
@@ -42,6 +43,25 @@ exports.updateQuestionResponse = async (req, res) => {
         res.status(400).send({ erro: e })
     }
 }
+// atomizado
+exports.evaluateUserResponse = async (req,res) =>{
+    try {
+        const idUser = 3; // req.body
+        const idQuestion = req.params.id_question;
+        const selectedOption = await QuestionResponse.findOne({where:{id_question: idQuestion, id_user: idUser}});
+        const rightOption = await Question.findByPk(idQuestion);
+        if (selectedOption && rightOption){
+        if (selectedOption.dataValues.option === rightOption.dataValues.right_option){
+            res.send({"acertou": true})
+        } else res.send({"acertou": false})}
+        else res.send({'msg': 'O usuário não respondeu essa pergunta.'})
+    } catch (e) {
+        console.error(e)
+        res.status(400).send({ erro: e })
+    }
+}
+
+// TODO  create() userExamResult -> num acertos
 
 exports.deleteQuestionResponse = async (req, res) => {
     try {
