@@ -16,7 +16,7 @@ const LoginPage = () => {
   let navigate = useNavigate();
 
   const authenticate = () => {
-    login(loginPayload).then(response => { if (response == 200) { navigate('/select-test') } })
+    login(loginPayload).then(response => { if (response == 200) { navigate('/selecionar-prova') } })
   }
 
 

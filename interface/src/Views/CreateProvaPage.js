@@ -60,7 +60,7 @@ const CreateProvaPage = () => {
 		}
 		else {
 			const res = await createExam(provaValues);
-			navigate(`/prova/${res.content.id_exam}/create-question`)
+			navigate(`/prova/${res.content.id_exam}/criar-questao`)
 		}
 	}
 
@@ -122,9 +122,10 @@ const CreateProvaPage = () => {
 			</div>
 			<div className="send-button">
 				<Button
+					styleType={"custom-confirm-button"}
 					onClick={() => handleTestCreation()}
 				>
-					Cadastrar Questao
+					Cadastrar Prova
 				</Button>
 			</div>
 		</div>

@@ -18,7 +18,6 @@ const SelectTestPage = () => {
 	return (
 
 		<div className="main">
-			{console.log(tests)}
 			<div className="turmas">
 				<div className="grid-container">
 					{tests.map(test => (

@@ -21,9 +21,9 @@ function App() {
         <Header />
         <Routes>
           <Route index element={<LoginPage />} />
-          <Route path="/prova/:id/create-question" element={<CreateQuestionPage />} />
-          <Route path="/select-test" element={<SelectTestPage />} />
-          <Route path="/create-test" element={<CreateProvaPage />} />
+          <Route path="/prova/:id/criar-questao" element={<CreateQuestionPage />} />
+          <Route path="/selecionar-prova" element={<SelectTestPage />} />
+          <Route path="/criar-prova" element={<CreateProvaPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/create-account" element={<CreateAccountPage />} />
           <Route path="/edit-question/:id" element={<EditQuestionPage />} />

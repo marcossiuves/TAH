@@ -41,6 +41,7 @@ export const login = (data) => {
 export const loginProcess = (user, status) => {
 	localStorage.setItem('username', user.registration)
 	localStorage.setItem('password', user.password)
+	localStorage.setItem('type', user.id_user_type)
 	redirectResult(status)
 	return 200
 	// localStorage.setItem('token', data.token)
@@ -48,7 +49,7 @@ export const loginProcess = (user, status) => {
 }
 
 export const logoutProcess = () => {
-	localStorage.removeItem('token')
+	localStorage.removeItem('type')
 	localStorage.removeItem('username')
 	localStorage.removeItem('password')
 }
@@ -139,9 +140,10 @@ export const fetchAllUsers = () =>
 
 
 export const createUser = (data) => {
-	axios.post(`${API_HOST}/usuarios/cadastrar`, data)
+	const response = axios.post(`${API_HOST}/usuarios/cadastrar`, data)
 		.then(response => redirectResult(response.status))
 		.catch(err => redirectResult(err.status))
+	return response
 }
 
 export const editUser = (userId, data) => {

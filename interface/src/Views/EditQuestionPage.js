@@ -85,11 +85,13 @@ const EditQuestionPage = () => {
 			</div>
 			<div className="send-button">
 				<Button
+					styleType={"custom-button"}
 					onClick={() => editarQuestao()}
 				>
 					Alterar Questão
 				</Button>
 				<Button
+					styleType={"custom-button"}
 					onClick={() => deletarQuestao()}
 				>
 					Deletar Questão

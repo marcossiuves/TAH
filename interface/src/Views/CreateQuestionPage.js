@@ -85,6 +85,7 @@ const CreateQuestionPage = () => {
       </div>
       <div className="send-button">
         <Button
+          styleType={"custom-confirm-button"}
           onClick={() => handleCreateQuestion()}
         >
           Cadastrar Questao

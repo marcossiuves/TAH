@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import Button from "../Components/Button";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import { API_HOST } from "../services/consts";
@@ -20,9 +20,7 @@ const TestPage = () => {
 		{ id: 4, field: "D) ", name: "option_d" },
 		{ id: 5, field: "E) ", name: "option_e" },
 	]
-
-	// @ts-ignore
-	const teste = [1, 23, 67, 44]
+	let navigate = useNavigate();
 
 	const params = useParams()
 
@@ -44,6 +42,7 @@ const TestPage = () => {
 	}
 
 	const handleQuestionResponse = (questionId) => {
+
 		const questionResponseData = {
 			// @ts-ignore
 			id_exam: parseInt(params.id),
@@ -51,13 +50,13 @@ const TestPage = () => {
 			option: currentAnswer,
 			id_user: 1,
 		}
-		axios.post(`${API_HOST}/question`, { questionResponseData })
+		axios.post(`${API_HOST}/respostaDaQuestao/cadastrar`, questionResponseData)
 			// @ts-ignore
 			.then(res => setCurrentQuestion(currentQuestion + 1))
 			.catch(err => err.status)
-
 		fetchQuestionData(testQuestions[currentQuestion + 1].id_question_exam)
 	}
+
 
 	// @ts-ignore
 	const handleAnswerChange = (field, value) => {
@@ -82,6 +81,7 @@ const TestPage = () => {
 					<>
 						<h3 style={{ color: "#000" }}> O teste possui {testQuestions.length} questões.</h3>
 						<Button
+							styleType={"custom-button"}
 							onClick={() => setStarted(!started)}>
 							Começar prova
 						</Button>
@@ -105,10 +105,20 @@ const TestPage = () => {
 							options={alternativas}
 							onChange={handleAnswerChange}
 						/>
-						<Button
-							onClick={() => handleQuestionResponse(currentQuestion)}>
-							Responder
-						</Button>
+						{(testQuestions.length == currentQuestion) ?
+							<Button
+								styleType={"custom-confirm-button"}
+								onClick={() => navigate('/selecionar-prova')}>
+								Finalizar
+							</Button>
+							:
+							<Button
+								styleType={"custom-button"}
+								onClick={() => handleQuestionResponse(currentQuestion)}>
+								Responder
+							</Button>
+						}
+
 					</>
 				)
 					:

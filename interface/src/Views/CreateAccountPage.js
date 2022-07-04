@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router';
 
 
 const CreateAccountPage = () => {
-	const [loginPayload, setLoginPayload] = useState({ id_user_type: 1 });
+	const [loginPayload, setLoginPayload] = useState({});
 
 
 	const handleChange = (field, value) => {
@@ -16,10 +16,11 @@ const CreateAccountPage = () => {
 
 	let navigate = useNavigate();
 
-	const authenticate = () => {
-		createUser(loginPayload)
-	}
+	const authenticate = (userType) => {
 
+		const finalPayload = { ...loginPayload, id_user_type: userType }
+		createUser(finalPayload).then(res => navigate('/'))
+	}
 
 	return (
 		<div className="father">
@@ -53,7 +54,9 @@ const CreateAccountPage = () => {
 					/>
 
 				</ form>
-				<button className="submit" onClick={() => authenticate()}> Cadastrar </button>
+				<button className="submit" onClick={() => authenticate(1)}> Cadastrar como professor </button>
+				<br />
+				<button className="submit" onClick={() => authenticate(2)}> Cadastrar como aluno </button>
 				<br />
 			</div>
 			<br />

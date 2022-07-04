@@ -12,7 +12,7 @@
 
 .custom-button {
 	transition: box-shadow .3s;
-	width: 100%;
+	width: 90%;
 	height: 50px;
 	margin: 50px;
 	border-radius: 10px;
@@ -25,5 +25,23 @@
 }
 
 .custom-button:hover {
+	box-shadow: 0 0 11px rgba(88, 88, 88, 0.6);
+}
+
+.custom-confirm-button {
+	transition: box-shadow .3s;
+	width: 90%;
+	height: 50px;
+	margin: 50px;
+	border-radius: 10px;
+	/* border: 1px solid #ccc; */
+	border: none;
+	background: linear-gradient(to top, #8fff93, #6bff5a);
+	float: left;
+	position: relative;
+
+}
+
+.custom-confirm-button:hover {
 	box-shadow: 0 0 11px rgba(88, 88, 88, 0.6);
 }
