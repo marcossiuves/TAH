@@ -23,4 +23,4 @@ https://documenter.getpostman.com/view/15861538/UzJFxKDV
 <br/>
 Modelagem do banco:
 </br>
-![image](../TAH/tests/ERM.png)
+![image](https://github.com/marcossiuves/TAH/blob/main/tests/ERM.png)
