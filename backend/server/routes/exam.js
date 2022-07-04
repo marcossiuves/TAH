@@ -9,11 +9,14 @@ router.post('/:id_exam/questao/cadastrar', async (req,res)=>{
 router.post('/cadastrar', async (req, res) => {
     await examController.createExam(req, res)
 })
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
     await examController.retrieveExams(req, res)
 });
 router.get('/:id', async (req, res) => {
     await examController.retrieveExam(req, res)
+});
+router.get('/:id_exam', async (req, res) => {
+    await examController.retrieveExamQuestions(req, res)
 });
 router.patch('/editar/:id', async (req, res) => {
     await examController.updateExam(req, res)
