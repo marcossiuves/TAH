@@ -1,0 +1,197 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.11 (Ubuntu 12.11-1.pgdg20.04+1)
+-- Dumped by pg_dump version 14.4 (Ubuntu 14.4-1.pgdg20.04+1)
+
+-- Started on 2022-07-04 18:35:53 -03
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3032 (class 0 OID 250848)
+-- Dependencies: 203
+-- Data for Name: MajorFields; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."MajorFields" (id_major_field, name, "createdAt", "updatedAt") FROM stdin;
+1	Samba	2022-07-03 23:46:33.135-03	2022-07-03 23:46:33.135-03
+2	Direito	2022-07-03 23:46:38.06-03	2022-07-04 17:28:57.496-03
+\.
+
+
+--
+-- TOC entry 3036 (class 0 OID 250867)
+-- Dependencies: 207
+-- Data for Name: UserTypes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."UserTypes" (id_user_type, role, "createdAt", "updatedAt") FROM stdin;
+2	bombeiro	2022-07-03 23:47:21.663256-03	2022-07-03 23:47:21.663256-03
+\.
+
+
+--
+-- TOC entry 3038 (class 0 OID 250875)
+-- Dependencies: 209
+-- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Users" (id_user, registration, password, email, id_user_type, "createdAt", "updatedAt") FROM stdin;
+3	300	uopa	sim@nao.com	2	2022-07-03 23:47:52.15-03	2022-07-03 23:47:52.15-03
+4	300	uopa	sim@nao.com	2	2022-07-03 23:48:12.347-03	2022-07-03 23:48:12.347-03
+6	900	uopa	sim@nao.com	2	2022-05-04 21:25:24.88-03	2022-07-04 17:32:17.822-03
+\.
+
+
+--
+-- TOC entry 3040 (class 0 OID 250891)
+-- Dependencies: 211
+-- Data for Name: Exams; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Exams" (id_exam, title, subject, id_user, id_major_field, question_amount, "createdAt", "updatedAt") FROM stdin;
+3	AV2	AOC	3	2	5	2022-07-03 23:48:26.239-03	2022-07-03 23:48:26.239-03
+2	AV2	AED	3	2	5	2022-07-03 23:48:21.687-03	2022-07-04 17:39:26.989-03
+\.
+
+
+--
+-- TOC entry 3034 (class 0 OID 250856)
+-- Dependencies: 205
+-- Data for Name: Questions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Questions" (id_question, statement, option_a, option_b, option_c, option_d, option_e, right_option, "createdAt", "updatedAt") FROM stdin;
+1	pa?'	ia.'	ia.'	ia o	ia.'	ia veze	 a	2022-07-03 23:48:32.585-03	2022-07-03 23:48:32.585-03
+2	será?	oia.	bla.	oia ou menos.	blu.	oia vezes..	a	2022-07-03 23:48:46.92-03	2022-07-03 23:48:46.92-03
+4	pa?'	ia.'	ia.'	ia o	ia.'	ia veze	 a	2022-07-03 23:48:54.752-03	2022-07-03 23:48:54.752-03
+5	pa?'	ia.'	ia.'	ia o	ia.'	ia veze	 a	2022-07-03 23:49:13.966-03	2022-07-03 23:49:13.966-03
+6	será?	oia.	bla.	oia ou menos.	blu.	oia vezes..	a	2022-07-04 17:33:12.884-03	2022-07-04 17:33:12.884-03
+7	pa?'	ia.'	ia.'	ia o	ia.'	ia veze	 a	2022-07-04 17:33:16.812-03	2022-07-04 17:33:16.812-03
+3	32RLWQEÇF?	o32RLWQEÇF.	o32RLWQEÇF.	o32RLWQEÇF ou menos.	o32RLWQEÇF.	o32RLWQEÇF vezes..	a	2022-07-03 23:48:53.107-03	2022-07-04 17:37:39.606-03
+\.
+
+
+--
+-- TOC entry 3042 (class 0 OID 250912)
+-- Dependencies: 213
+-- Data for Name: QuestionExams; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."QuestionExams" (id_question_exam, id_question, id_exam, "createdAt", "updatedAt") FROM stdin;
+4	5	2	2022-07-03 23:49:13.982-03	2022-07-03 23:49:13.982-03
+5	7	2	2022-07-04 17:33:16.816-03	2022-07-04 17:33:16.816-03
+\.
+
+
+--
+-- TOC entry 3044 (class 0 OID 250930)
+-- Dependencies: 215
+-- Data for Name: QuestionResponses; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."QuestionResponses" (id_question_response, id_exam, id_question, option, id_user, "createdAt", "updatedAt") FROM stdin;
+2	2	3	a	3	2022-07-03 23:49:26.955-03	2022-07-03 23:49:26.955-03
+3	2	7	a	3	2022-07-04 17:57:04.038-03	2022-07-04 17:57:32.753-03
+\.
+
+
+--
+-- TOC entry 3046 (class 0 OID 250954)
+-- Dependencies: 217
+-- Data for Name: UserExamResults; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."UserExamResults" (id_exam, id_user, num_right_answers, "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 3052 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: Exams_id_exam_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Exams_id_exam_seq"', 3, true);
+
+
+--
+-- TOC entry 3053 (class 0 OID 0)
+-- Dependencies: 202
+-- Name: MajorFields_id_major_field_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."MajorFields_id_major_field_seq"', 2, true);
+
+
+--
+-- TOC entry 3054 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: QuestionExams_id_question_exam_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."QuestionExams_id_question_exam_seq"', 5, true);
+
+
+--
+-- TOC entry 3055 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: QuestionResponses_id_question_response_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."QuestionResponses_id_question_response_seq"', 3, true);
+
+
+--
+-- TOC entry 3056 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: Questions_id_question_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Questions_id_question_seq"', 7, true);
+
+
+--
+-- TOC entry 3057 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: UserExamResults_id_exam_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."UserExamResults_id_exam_seq"', 1, false);
+
+
+--
+-- TOC entry 3058 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: UserTypes_id_user_type_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."UserTypes_id_user_type_seq"', 2, true);
+
+
+--
+-- TOC entry 3059 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: Users_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Users_id_user_seq"', 6, true);
+
+
+-- Completed on 2022-07-04 18:35:53 -03
+
+--
+-- PostgreSQL database dump complete
+--
+
