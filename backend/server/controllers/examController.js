@@ -38,10 +38,12 @@ exports.retrieveExam = async (req, res) => {
 
 exports.retrieveExamQuestions = async (req, res) => {
   try {
-    const exam = await Exam.findByPk(req.params.id);
-    const questionExam = await QuestionExam.findAll({where: { id_exam: req.params.id }});
-    if (exam) res.send({ exam, questionExam });
-    else res.status(400).send({ msg: "Prova não existe" });
+    const relatedQuestions = await QuestionExam.findAll({
+      where: { id_exam: req.params.id_exam },
+    });
+    console.log(relatedQuestions)
+    if (relatedQuestions) res.send({relatedQuestions });
+    else res.status(400).send({ msg: "Não existem questões associadas a essa prova." });
   } catch (e) {
     console.error(e);
     res.status(400).send({ erro: e });
