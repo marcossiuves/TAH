@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors')
 const router = express.Router();
 const examController = require('../controllers/examController')
 const questionController = require('../controllers/questionController')
@@ -10,7 +9,6 @@ router.post('/:id_exam/questao/cadastrar', async (req,res)=>{
 router.post('/cadastrar', async (req, res) => {
     await examController.createExam(req, res)
 })
-// deletar o NEXT caso precise
 router.get('/', async (req, res, next) => {
     await examController.retrieveExams(req, res)
 });
