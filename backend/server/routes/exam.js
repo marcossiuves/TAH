@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     await examController.retrieveExam(req, res)
 });
-router.get('/:id_exam', async (req, res) => {
+router.get('/questoes/:id_exam', async (req, res) => {
     await examController.retrieveExamQuestions(req, res)
 });
 router.patch('/editar/:id', async (req, res) => {

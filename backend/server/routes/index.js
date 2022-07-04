@@ -14,7 +14,6 @@ app.use("/cursos", require("./majorField"));
 app.use("/questoes", require("./question"));
 app.use("/prova", require("./exam"));
 app.use("/respostaDaQuestao", require("./questionResponse"));
-// app.use('/questaoDaProva', require('./questionExam'))
 app.use("/usuarios", require("./user"));
 
 app.get("/", (req, res) => {
