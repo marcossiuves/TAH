@@ -11,6 +11,8 @@ import CreateProvaPage from './Views/CreateProvaPage';
 import CreateAccountPage from './Views/CreateAccountPage';
 import EditQuestionPage from './Views/EditQuestionPage';
 import TestPage from './Views/TestPage';
+import FeedBackPage from './Views/FeedBackPage';
+import FeedBackEvaluationPage from './Views/FeedBackEvaluationPage';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
           <Route path="/edit-question/:id" element={<EditQuestionPage />} />
           <Route path="/test/:id" element={<TestPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/selecionar-feedback" element={<FeedBackPage />} />
+          <Route path="/feedback-prova/:id" element={<FeedBackEvaluationPage />} />
         </Routes>
       </BrowserRouter>
     </div>

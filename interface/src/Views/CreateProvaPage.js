@@ -3,7 +3,7 @@ import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
 import "./Styles/CreateProvaPageStyle.css";
-import { createExam, fetchAllCourses } from "../services/Services";
+import { createExam } from "../services/Services";
 import { useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import IdStandardSelectBox from "../Components/IdStandardSelectBox";
@@ -12,6 +12,7 @@ import IdStandardInput from "../Components/IsStandardInput";
 
 const CreateProvaPage = () => {
 	const [provaValues, setprovaValues] = useState({});
+	// @ts-ignore
 	const [cursos, setCursos] = useState([]);
 	const [disciplinas, setDisciplinas] = useState([]);
 	const [conteudo, setConteudo] = useState([]);
@@ -25,32 +26,36 @@ const CreateProvaPage = () => {
 
 	const fetchCursos = () => {
 		setCursos([
+			// @ts-ignore
 			{ id: 1, name: "Arquitetura" },
+			// @ts-ignore
 			{ id: 2, name: "Ciencia da Computação" },
+			// @ts-ignore
 			{ id: 3, name: "Engenharia" },
 		])
 	}
 
 	const fetchDisciplinas = () => {
 		setDisciplinas([
+			// @ts-ignore
 			{ id: 1, name: "Banco de dados" },
+			// @ts-ignore
 			{ id: 2, name: "AOC" },
+			// @ts-ignore
 			{ id: 3, name: "AEDIII" },
 		])
 	}
 
 	const fetchConteudos = () => {
 		setConteudo([
-			{ id: 1, name: "1 Semestre" },
-			{ id: 2, name: "2 Semestre" },
-			{ id: 3, name: "3 Semestre" },
-			{ id: 4, name: "4 Semestre" },
-			{ id: 5, name: "5 Semestre" },
-			{ id: 6, name: "6 Semestre" },
-			{ id: 7, name: "7 Semestre" },
-			{ id: 8, name: "8 Semestre" },
-			{ id: 9, name: "9 Semestre" },
-			{ id: 10, name: "1 Semestre" },
+			// @ts-ignore
+			{ id: 1, name: "Direito" },
+			// @ts-ignore
+			{ id: 2, name: "Arquitetura" },
+			// @ts-ignore
+			{ id: 3, name: "Engenharia Civil" },
+			// @ts-ignore
+			{ id: 4, name: "Ciência da Computação" },
 		])
 	}
 

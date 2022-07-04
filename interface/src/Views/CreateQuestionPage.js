@@ -3,8 +3,8 @@ import StandardInput from "../Components/StandardInput";
 import StandardSelectBox from "../Components/StandardSelectBox";
 import Button from "../Components/Button";
 import './Styles/CreateQuestionPageStyle.css'
-import { createQuestion, fetchExam } from "../services/Services";
-import { useParams } from "react-router";
+import { createQuestion } from "../services/Services";
+import { useNavigate, useParams } from "react-router";
 
 const CreateQuestionPage = () => {
   const [questionValues, setQuestionValues] = useState({})
@@ -14,6 +14,7 @@ const CreateQuestionPage = () => {
     setQuestionValues({ ...questionValues, [field]: value })
   }
 
+  let navigate = useNavigate();
 
   const alternativas = [
     { id: 1, name: "A) ", field: "option_a" },
@@ -89,6 +90,13 @@ const CreateQuestionPage = () => {
           onClick={() => handleCreateQuestion()}
         >
           Cadastrar Questao
+        </Button>
+        <br />
+        <Button
+          styleType={"custom-button"}
+          onClick={() => navigate('/selecionar-prova')}
+        >
+          Finalizar
         </Button>
       </div>
     </div>

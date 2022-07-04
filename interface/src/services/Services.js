@@ -32,16 +32,17 @@ const wrongLogin = () => {
 
 export const login = (data) => {
 	const response = axios.post(`${API_HOST}/usuarios/login`, data)
-		.then(response => loginProcess(response.data.user, response.status))
+		.then(response => loginProcess(response.data.user, response.data.userType, response.status))
 		.catch(err => wrongLogin())
 
 	return response
 }
 
-export const loginProcess = (user, status) => {
+export const loginProcess = (user, userType, status) => {
+	localStorage.setItem('userid', user.id_user)
 	localStorage.setItem('username', user.registration)
 	localStorage.setItem('password', user.password)
-	localStorage.setItem('type', user.id_user_type)
+	localStorage.setItem('type', userType.role)
 	redirectResult(status)
 	return 200
 	// localStorage.setItem('token', data.token)
@@ -49,6 +50,7 @@ export const loginProcess = (user, status) => {
 }
 
 export const logoutProcess = () => {
+	localStorage.removeItem('userid')
 	localStorage.removeItem('type')
 	localStorage.removeItem('username')
 	localStorage.removeItem('password')

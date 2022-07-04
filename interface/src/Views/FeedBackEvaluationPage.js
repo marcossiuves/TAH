@@ -6,20 +6,13 @@ import StandardSelectBox from "../Components/StandardSelectBox";
 import { API_HOST } from "../services/consts";
 import './Styles/CreateQuestionPageStyle.css'
 
-const TestPage = () => {
+const FeedBackEvaluationPage = () => {
 	const [testSpecs, setTestSpecs] = useState({})
 	const [testQuestions, setTestQuestions] = useState([])
 	const [questionData, setQuestionData] = useState({})
 	const [currentQuestion, setCurrentQuestion] = useState(0)
 	const [started, setStarted] = useState(false)
 	const [currentAnswer, setCurrentAnswer] = useState()
-	const alternativas = [
-		{ id: 1, field: "A) ", name: "option_a" },
-		{ id: 2, field: "B) ", name: "option_b" },
-		{ id: 3, field: "C) ", name: "option_c" },
-		{ id: 4, field: "D) ", name: "option_d" },
-		{ id: 5, field: "E) ", name: "option_e" },
-	]
 	const [userId, setUserId] = useState(localStorage.getItem('userid'))
 
 	let navigate = useNavigate();
@@ -55,17 +48,11 @@ const TestPage = () => {
 			option: currentAnswer,
 			id_user: userId,
 		}
-		axios.post(`${API_HOST}/respostaDaQuestao/cadastrar`, questionResponseData)
+		axios.get(`${API_HOST}/respostaDaQuestao/conferirResposta/${questionId}`, { questionResponseData })
 			// @ts-ignore
 			.then(res => setCurrentQuestion(currentQuestion + 1))
 			.catch(err => err.status)
 		// , fetchQuestionData(testQuestions[currentQuestion].id_question_exam)
-	}
-
-
-	// @ts-ignore
-	const handleAnswerChange = (field, value) => {
-		setCurrentAnswer(value)
 	}
 
 	useEffect(() => {
@@ -88,11 +75,11 @@ const TestPage = () => {
 			<div className="body-question">
 				{!started && (
 					<>
-						<h3 style={{ color: "#000" }}> O teste possui {testQuestions.length} questões.</h3>
+						<h3 style={{ color: "#000" }}> Voce fez {testQuestions.length} questões.</h3>
 						<Button
 							styleType={"custom-button"}
 							onClick={() => setStarted(!started)}>
-							Começar prova
+							Ver respostas
 						</Button>
 					</>
 				)}
@@ -105,15 +92,7 @@ const TestPage = () => {
 							// @ts-ignore
 							statement}</h3>
 						<div className="body-question">
-							{alternativas.map((alt) =>
-								<h3>{alt.field} : {questionData[alt.name]}</h3>
-							)}
 						</div>
-						<StandardSelectBox
-							field={"subject"}
-							options={alternativas}
-							onChange={handleAnswerChange}
-						/>
 						{(testQuestions.length == currentQuestion) ?
 
 							<Button
@@ -125,7 +104,7 @@ const TestPage = () => {
 							<Button
 								styleType={"custom-button"}
 								onClick={() => handleQuestionResponse(currentQuestion)}>
-								Responder
+								Proxima
 							</Button>
 						}
 
@@ -137,4 +116,4 @@ const TestPage = () => {
 		</div >
 	)
 }
-export default TestPage;
+export default FeedBackEvaluationPage;

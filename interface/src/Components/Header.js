@@ -25,7 +25,7 @@ const Header = () => {
 		else {
 			setIsLoged(false)
 		}
-		if (localStorage.getItem('type') == "Professor") {
+		if (localStorage.getItem('type') == "professor") {
 			setIsTeacher(true)
 		}
 		else {
@@ -57,6 +57,7 @@ const Header = () => {
 							<b onClick={() => navigate("/criar-prova")}>Cadastrar Prova</b>
 						}
 						<b onClick={() => navigate("/selecionar-prova")}>Simulados</b>
+						<b onClick={() => navigate("/selecionar-feedback")}>Pontuação</b>
 						<b onClick={() => navigate("/faq")}>Ajuda</b>
 						<b onClick={() => logout()}>Logout</b>
 					</>
