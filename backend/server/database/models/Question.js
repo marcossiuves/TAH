@@ -11,7 +11,6 @@ const Question = database.define('Question',
     option_d: { type: DataTypes.STRING, allowNull: false },
     option_e: { type: DataTypes.STRING, allowNull: false },
     right_option: { type: DataTypes.STRING, allowNull: false },
-    evaluated: { type: DataTypes.BOOLEAN, allowNull: false } // marcado pra rodar
 })
 
 module.exports = Question;

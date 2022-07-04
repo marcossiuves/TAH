@@ -4,7 +4,6 @@ const MajorField = require('../database/models/MajorField')
 exports.createMajorField = async (req, res) => {
     try {
         let content = req.body;
-        if (req.body.evaluated === true) content.evaluated = false;
         const majorField = await MajorField.create(content);
         res.status(201).send({ msg: 'Deu certo o cadastro', content: majorField })
     } catch (e) {

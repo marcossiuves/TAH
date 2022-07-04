@@ -5,7 +5,6 @@ const QuestionExam = require('../database/models/QuestionExam')
 exports.createExam = async (req, res) => {
     try {
         let content = req.body;
-        if (req.body.evaluated === true) content.evaluated = false;
         const exams = await Exam.create(content);
         res.status(201).send({ msg: 'Deu certo o cadastro', content: exams })
     } catch (e) {

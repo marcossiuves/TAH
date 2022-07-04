@@ -3,7 +3,7 @@ const router = express.Router();
 const questionController = require('../controllers/questionController')
 
 router.post('/cadastrar',  (req, res) => {
-    questionController.createQuestionPure(req, res);
+    questionController.createPureQuestion(req, res);
 })
 router.get('/', (req, res) => {
     questionController.retrieveQuestions(req, res);

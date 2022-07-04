@@ -4,7 +4,6 @@ const UserType = require('../database/models/UserType')
 exports.createUser = async (req, res) => {
   try {
     let content = req.body;
-    if (req.body.evaluated === true) content.evaluated = false;
     const user = await User.create(content);
     res.status(201).send({ msg: "Deu certo o cadastro", content: user });
   } catch (e) {

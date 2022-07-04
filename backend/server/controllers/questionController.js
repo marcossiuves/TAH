@@ -4,7 +4,6 @@ const QuestionExam = require("../database/models/QuestionExam");
 exports.createRealQuestion = async (req, res) => {
   try {
     let content = req.body;
-    content.evaluated = false; // X
     const question = await Question.create(content);
     const questionExam = await QuestionExam.create({
       id_question: question.dataValues.id_question,
@@ -24,10 +23,9 @@ exports.createRealQuestion = async (req, res) => {
   }
 };
 
-exports.createQuestionPure = async (req, res) => {
+exports.createPureQuestion = async (req, res) => {
   try {
     let content = req.body;
-    content.evaluated = false; // X
     const question = await Question.create(content);
 
     res.status(201).send({
