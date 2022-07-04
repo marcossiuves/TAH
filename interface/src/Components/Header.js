@@ -25,7 +25,7 @@ const Header = () => {
 		else {
 			setIsLoged(false)
 		}
-		if (localStorage.getItem('type') == "professor") {
+		if (localStorage.getItem('type') == "Professor") {
 			setIsTeacher(true)
 		}
 		else {

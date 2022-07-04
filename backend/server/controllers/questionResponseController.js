@@ -60,7 +60,8 @@ exports.updateQuestionResponse = async (req, res) => {
 // atomizado
 exports.evaluateUserResponse = async (req, res) => {
     try {
-        const idUser = 3; // req.body
+        console.log(req.body)
+        const idUser = req.body.id_user;
         const idQuestion = req.params.id_question;
         const selectedOption = await QuestionResponse.findOne({
             where: { id_question: idQuestion, id_user: idUser },
@@ -84,8 +85,8 @@ exports.evaluateUserResponse = async (req, res) => {
 // contador de respostas certas
 exports.evaluateUserExam = async (req, res) => {
     try {
-        const idUser = 3; // const idUser = req.body.id_user
-        const idExam = 2; // const idExam = req.body/params.id_exam
+        const idUser = 1; // const idUser = req.body.id_user
+        const idExam = 1; // const idExam = req.body/params.id_exam
         let relatedQuestions = await QuestionExam.findAll({
             where: { id_exam: idExam }, // where: { id_exam: req.params.id_exam },
         });

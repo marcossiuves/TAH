@@ -14,11 +14,11 @@ const TestPage = () => {
 	const [started, setStarted] = useState(false)
 	const [currentAnswer, setCurrentAnswer] = useState()
 	const alternativas = [
-		{ id: 1, field: "A) ", name: "option_a" },
-		{ id: 2, field: "B) ", name: "option_b" },
-		{ id: 3, field: "C) ", name: "option_c" },
-		{ id: 4, field: "D) ", name: "option_d" },
-		{ id: 5, field: "E) ", name: "option_e" },
+		{ id: 1, field: "A) ", name: "a", name_two: "option_a" },
+		{ id: 2, field: "B) ", name: "b", name_two: "option_b" },
+		{ id: 3, field: "C) ", name: "c", name_two: "option_c" },
+		{ id: 4, field: "D) ", name: "d", name_two: "option_d" },
+		{ id: 5, field: "E) ", name: "e", name_two: "option_e" },
 	]
 	const [userId, setUserId] = useState(localStorage.getItem('userid'))
 
@@ -106,7 +106,7 @@ const TestPage = () => {
 							statement}</h3>
 						<div className="body-question">
 							{alternativas.map((alt) =>
-								<h3>{alt.field} : {questionData[alt.name]}</h3>
+								<h3>{alt.field} : {questionData[alt.name_two]}</h3>
 							)}
 						</div>
 						<StandardSelectBox

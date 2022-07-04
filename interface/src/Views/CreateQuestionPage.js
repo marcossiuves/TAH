@@ -25,11 +25,11 @@ const CreateQuestionPage = () => {
   ]
 
   const options = [
-    { id: 1, name: "A" },
-    { id: 2, name: "B" },
-    { id: 3, name: "C" },
-    { id: 4, name: "D" },
-    { id: 5, name: "E" },
+    { id: 1, name: "a" },
+    { id: 2, name: "b" },
+    { id: 3, name: "c" },
+    { id: 4, name: "d" },
+    { id: 5, name: "e" },
   ]
 
   const params = useParams()

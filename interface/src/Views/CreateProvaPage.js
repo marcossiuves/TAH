@@ -49,13 +49,13 @@ const CreateProvaPage = () => {
 	const fetchConteudos = () => {
 		setConteudo([
 			// @ts-ignore
-			{ id: 1, name: "Direito" },
+			{ id: 1, name: "Arquitetura" },
 			// @ts-ignore
-			{ id: 2, name: "Arquitetura" },
+			{ id: 2, name: "Ciência da Computação" },
 			// @ts-ignore
 			{ id: 3, name: "Engenharia Civil" },
 			// @ts-ignore
-			{ id: 4, name: "Ciência da Computação" },
+			{ id: 4, name: "Direito" },
 		])
 	}
 
