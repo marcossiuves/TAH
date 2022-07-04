@@ -108,12 +108,13 @@ const TestPage = () => {
 							{alternativas.map((alt) =>
 								<h3>{alt.field} : {questionData[alt.name_two]}</h3>
 							)}
+							<StandardSelectBox
+								field={"subject"}
+								options={alternativas}
+								onChange={handleAnswerChange}
+							/>
 						</div>
-						<StandardSelectBox
-							field={"subject"}
-							options={alternativas}
-							onChange={handleAnswerChange}
-						/>
+
 						{(testQuestions.length == currentQuestion) ?
 
 							<Button

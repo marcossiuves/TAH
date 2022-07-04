@@ -91,6 +91,7 @@ const FeedBackEvaluationPage = () => {
 						{questionData == true ? <h2 style={{ color: "green" }}> Acertou </h2> : <h2 style={{ color: "red" }}> Errou </h2>}
 						<div className="body-question">
 						</div>
+						<h1> Questão {currentQuestion}</h1>
 						{(testQuestions.length == currentQuestion) ?
 
 							<Button
